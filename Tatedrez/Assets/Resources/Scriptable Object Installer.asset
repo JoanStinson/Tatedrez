@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Scriptable Object Installer
   m_EditorClassIdentifier: 
   m_audioLibraryInstance: {fileID: 11400000, guid: 02b756626544c23499332cd4f2034395, type: 2}
-  m_fontLibrary: {fileID: 0}
+  m_fontLibrary: {fileID: 11400000, guid: 81c4b4c6cad8d254583890d448cfbc44, type: 2}
   m_gameSettingsInstance: {fileID: 0}

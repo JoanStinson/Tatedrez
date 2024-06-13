@@ -1,0 +1,8 @@
+﻿TID_GAME_TITLE=Tatedrez
+TID_PLAY_VERSUS_PLAYER=Gioca contro un altro giocatore
+TID_PLAY_VERSUS_CPU=Gioca contro il computer
+TID_EXIT_GAME=Esci dal gioco
+TID_PLAYER_TURN=Turno del giocatore [X]
+TID_PLAYER_WINS=Il giocatore [X] vince!
+TID_PLAY_AGAIN=Gioca di nuovo
+TID_MAIN_MENU=Menu principale

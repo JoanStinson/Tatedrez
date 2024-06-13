@@ -6,6 +6,6 @@ namespace JGM.Game
 {
     public class Tatedrez : MonoBehaviour
     {
-        
+        //USAR m_
     }
 }

@@ -28,8 +28,8 @@ namespace JGM.Game
             m_playView.Initialize(m_gameModel, this);
             m_gameOverView.Initialize(this);
 
-            m_mainMenuView.Show();
-            m_playView.Hide();
+            m_mainMenuView.Hide();
+            m_playView.Show();
             m_gameOverView.Hide();
         }
 

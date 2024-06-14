@@ -565,6 +565,7 @@ GameObject:
   - component: {fileID: 274825837}
   - component: {fileID: 274825836}
   - component: {fileID: 274825835}
+  - component: {fileID: 274825839}
   - component: {fileID: 274825838}
   m_Layer: 5
   m_Name: LeftPiecesSpawnView
@@ -672,8 +673,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36fc9522e28c643968cfd7c587d5b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_canvasGroup: {fileID: 274825839}
   m_piecesSpawnParent: {fileID: 274825835}
   m_pieceViewPrefab: {fileID: 9029576500978370833, guid: 96485cb317d02174b92360a0e0c3f11f, type: 3}
+--- !u!225 &274825839
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274825833}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &286356385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2133,6 +2147,7 @@ GameObject:
   - component: {fileID: 1125876262}
   - component: {fileID: 1125876261}
   - component: {fileID: 1125876260}
+  - component: {fileID: 1125876264}
   - component: {fileID: 1125876263}
   m_Layer: 5
   m_Name: RightPiecesSpawnView
@@ -2240,8 +2255,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36fc9522e28c643968cfd7c587d5b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_canvasGroup: {fileID: 1125876264}
   m_piecesSpawnParent: {fileID: 1125876260}
   m_pieceViewPrefab: {fileID: 9029576500978370833, guid: 96485cb317d02174b92360a0e0c3f11f, type: 3}
+--- !u!225 &1125876264
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125876258}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1158734864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2703,9 +2731,6 @@ MonoBehaviour:
   - {fileID: 1990965734}
   - {fileID: 146249025}
   - {fileID: 1677648742}
-  m_cellLightBrownColor: {r: 0.9058824, g: 0.82745105, b: 0.627451, a: 1}
-  m_cellDarkBrownColor: {r: 0.8117648, g: 0.54901963, b: 0.24705884, a: 1}
-  m_cellHighlightedColor: {r: 0.627451, g: 0.90588236, b: 0.63347304, a: 1}
 --- !u!1 &1393274841
 GameObject:
   m_ObjectHideFlags: 0
@@ -4491,8 +4516,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_playerTurnText: {fileID: 1393274844}
   m_boardView: {fileID: 1329039618}
-  m_leftPiecesSpawnView: {fileID: 274825838}
-  m_rightPiecesSpawnView: {fileID: 1125876263}
+  m_piecesSpawnViews:
+  - {fileID: 274825838}
+  - {fileID: 1125876263}
 --- !u!224 &510700393439392800
 RectTransform:
   m_ObjectHideFlags: 0

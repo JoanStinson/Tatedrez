@@ -6,9 +6,24 @@ namespace JGM.Game
     [CreateAssetMenu(fileName = "New Game Settings", menuName = "Game Settings", order = 0)]
     public class GameSettings : ScriptableObject
     {
-        [Header("Player Pieces")]
+        public Color BoardCellLightBrownColor => m_boardCellLightBrownColor;
+        public Color BoardCellDarkBrownColor => m_boardCellDarkBrownColor;
+        public Color BoardCellHighlightedColor => m_boardCellHighlightedColor;
+        public PieceConfig[] Player1PieceConfigs => m_player1PieceConfigs;
+        public PieceConfig[] Player2PieceConfigs => m_player2PieceConfigs;
+        public float PieceEnabledColorAlpha => m_pieceEnabledColorAlpha;
+        public float PieceDisabledColorAlpha => m_pieceDisabledColorAlpha;
+
+        [Header("Board")]
+        [SerializeField] private Color m_boardCellLightBrownColor;
+        [SerializeField] private Color m_boardCellDarkBrownColor;
+        [SerializeField] private Color m_boardCellHighlightedColor;
+
+        [Header("Pieces")]
         [SerializeField] private PieceConfig[] m_player1PieceConfigs;
         [SerializeField] private PieceConfig[] m_player2PieceConfigs;
+        [SerializeField, Range(0, 1)] private float m_pieceEnabledColorAlpha = 1.0f;
+        [SerializeField, Range(0, 1)] private float m_pieceDisabledColorAlpha = 0.5f;
 
         [Serializable]
         public class PieceConfig
@@ -16,8 +31,5 @@ namespace JGM.Game
             public string Id;
             public Sprite Sprite;
         }
-
-        public PieceConfig[] Player1PieceConfigs => m_player1PieceConfigs;
-        public PieceConfig[] Player2PieceConfigs => m_player2PieceConfigs;
     }
 }

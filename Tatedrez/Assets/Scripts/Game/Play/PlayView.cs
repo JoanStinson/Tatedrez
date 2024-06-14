@@ -8,34 +8,40 @@ namespace JGM.Game
     {
         [SerializeField] private LocalizedText m_playerTurnText;
         [SerializeField] private BoardView m_boardView;
-        [SerializeField] private PiecesSpawnView m_leftPiecesSpawnView;
-        [SerializeField] private PiecesSpawnView m_rightPiecesSpawnView;
+        [SerializeField] private PiecesSpawnView[] m_piecesSpawnViews;
 
         [Inject] private ICoroutineService m_coroutineService;
 
-        private PlayController m_controller;
+        private PlayController m_playController;
 
         public void Initialize(GameModel gameModel, GameView gameView)
         {
-            m_controller = new PlayController();
-            m_boardView.Initialize(new BoardModel(3, 3));
+            m_playController = new PlayController(gameModel);
+            m_boardView.Initialize(gameModel, new BoardModel(3, 3));
 
             var canvasRect = (RectTransform)gameView.Canvas.transform;
-            m_leftPiecesSpawnView.Initialize(gameModel.Player1PieceConfigs, m_boardView.Cells, canvasRect);
-            m_rightPiecesSpawnView.Initialize(gameModel.Player2PieceConfigs, m_boardView.Cells, canvasRect);
+            for (int i = 0; i < m_piecesSpawnViews.Length; i++)
+            {
+                m_piecesSpawnViews[i].Initialize(gameModel, i, m_boardView.Cells, canvasRect);
+            }
         }
 
         public override void Show()
         {
             base.Show();
+            int playerTurn = m_playController.StartNewGame();
+            m_piecesSpawnViews[0].EnableInteraction();
+            m_piecesSpawnViews[1].DisableInteraction();
             m_coroutineService.StartExternalCoroutine(DisablePiecesSpawnLayoutGroups());
         }
 
         private IEnumerator DisablePiecesSpawnLayoutGroups()
         {
             yield return new WaitForEndOfFrame();
-            m_leftPiecesSpawnView.DisableLayoutGroup();
-            m_rightPiecesSpawnView.DisableLayoutGroup();
+            foreach (var spawnView in m_piecesSpawnViews)
+            {
+                spawnView.DisableLayoutGroup();
+            }
         }
     }
 }

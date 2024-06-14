@@ -1,8 +1,35 @@
-﻿namespace JGM.Game
+﻿using static JGM.Game.LocalizationService;
+using Random = UnityEngine.Random;
+
+namespace JGM.Game
 {
     public class GameController
     {
-        private GameModel m_gameModel;
+        private readonly ILocalizationService m_localizationService;
+
+        public GameController(ILocalizationService localizationService)
+        {
+            m_localizationService = localizationService;
+        }
+
+        public GameModel BuildGameModel(GameSettings gameSettings)
+        {
+            return new GameModel(gameSettings);
+        }
+
+        public void ChangeLanguageToRandom()
+        {
+            Language currentLanguage = m_localizationService.currentLanguage;
+            Language randomLanguage;
+
+            do
+            {
+                randomLanguage = (Language)Random.Range(0, (int)Language.Count);
+            }
+            while (randomLanguage == currentLanguage);
+
+            m_localizationService.SetLanguage(randomLanguage);
+        }
 
         public void ExitGame()
         {
@@ -11,12 +38,6 @@
 #else
             Application.Quit();
 #endif
-        }
-
-        public GameModel GetGameModel(GameSettings gameSettings)
-        {
-            m_gameModel ??= new GameModel(gameSettings);
-            return m_gameModel;
         }
     }
 }

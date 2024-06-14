@@ -16,9 +16,14 @@ namespace JGM.Game
         public void Initialize(BoardModel boardModel)
         {
             m_boardModel = boardModel;
+            InitializeBoardCells();
+        }
 
+        private void InitializeBoardCells()
+        {
             int currentRow = 0;
             int currentColumn = -1;
+
             for (int i = 0; i < m_cells.Length; i++)
             {
                 var boardCellColor = (i % 2 == 0) ? m_cellDarkBrownColor : m_cellLightBrownColor;

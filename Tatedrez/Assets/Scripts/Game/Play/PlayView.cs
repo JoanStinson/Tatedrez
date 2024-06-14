@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using Zenject;
 
 namespace JGM.Game
 {
@@ -8,19 +10,32 @@ namespace JGM.Game
         [SerializeField] private BoardView m_boardView;
         [SerializeField] private PiecesSpawnView m_leftPiecesSpawnView;
         [SerializeField] private PiecesSpawnView m_rightPiecesSpawnView;
-        
-        private GameView m_gameView;
+
+        [Inject] private ICoroutineService m_coroutineService;
+
         private PlayController m_controller;
 
-        public void Initialize(GameView gameView, GameModel gameModel, PlayController controller)
+        public void Initialize(GameModel gameModel, GameView gameView)
         {
-            m_gameView = gameView;
-            m_controller = controller;
-
+            m_controller = new PlayController();
             m_boardView.Initialize(new BoardModel(3, 3));
-            var canvasRect = (RectTransform)m_gameView.Canvas.transform;
+
+            var canvasRect = (RectTransform)gameView.Canvas.transform;
             m_leftPiecesSpawnView.Initialize(gameModel.Player1PieceConfigs, m_boardView.Cells, canvasRect);
             m_rightPiecesSpawnView.Initialize(gameModel.Player2PieceConfigs, m_boardView.Cells, canvasRect);
+        }
+
+        public override void Show()
+        {
+            base.Show();
+            m_coroutineService.StartExternalCoroutine(DisablePiecesSpawnLayoutGroups());
+        }
+
+        private IEnumerator DisablePiecesSpawnLayoutGroups()
+        {
+            yield return new WaitForEndOfFrame();
+            m_leftPiecesSpawnView.DisableLayoutGroup();
+            m_rightPiecesSpawnView.DisableLayoutGroup();
         }
     }
 }

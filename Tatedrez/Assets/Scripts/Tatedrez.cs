@@ -14,7 +14,7 @@ namespace JGM.Game
 
         private void Run()
         {
-            m_gameView.Initialize(new GameController());
+            m_gameView.Initialize();
         }
     }
 }

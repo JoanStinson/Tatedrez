@@ -6,6 +6,7 @@ namespace JGM.Game
     {
         public PieceConfig[] Player1PieceConfigs { get; private set; }
         public PieceConfig[] Player2PieceConfigs { get; private set; }
+        public bool PlayerVersusCpu { get; set; }
 
         public GameModel(GameSettings gameSettings)
         {

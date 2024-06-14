@@ -13,7 +13,6 @@ namespace JGM.Game
         public void Initialize(GameSettings.PieceConfig[] pieceConfigs, CellView[] boardCells, RectTransform canvasRect)
         {
             InstantiatePieces(pieceConfigs, boardCells, canvasRect);
-            DisableLayoutGroups();
         }
 
         private void InstantiatePieces(GameSettings.PieceConfig[] pieceConfigs, CellView[] boardCells, RectTransform canvasRect)
@@ -29,12 +28,9 @@ namespace JGM.Game
             }
         }
 
-        private void DisableLayoutGroups()
+        public void DisableLayoutGroup()
         {
-            m_coroutineService.DelayedCallByFrames(() =>
-            {
-                m_piecesSpawnParent.enabled = false;
-            }, 1);
+            m_piecesSpawnParent.enabled = false;
         }
     }
 }

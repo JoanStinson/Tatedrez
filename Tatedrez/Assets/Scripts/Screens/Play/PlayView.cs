@@ -19,17 +19,19 @@ namespace JGM.Game
             m_gameModel = gameModel;
             m_controller = controller;
 
-            foreach (var pieceConfig in m_gameModel.Player1PieceConfigs)
-            {
-                var pieceModel = new PieceModel(pieceConfig.Id, pieceConfig.Sprite);
-                var pieceView = GameObject.Instantiate(m_pieceViewPrefab, m_player1PiecesParent, false);
-                pieceView.Initialize(pieceModel);
-            }
+            m_player1PiecesParent.DestroyAllChildren();
+            SpawnPieces(m_gameModel.Player1PieceConfigs, m_player1PiecesParent);
+            
+            m_player2PiecesParent.DestroyAllChildren();
+            SpawnPieces(m_gameModel.Player2PieceConfigs, m_player2PiecesParent);
+        }
 
-            foreach (var pieceConfig in m_gameModel.Player2PieceConfigs)
+        private void SpawnPieces(GameSettings.PieceConfig[] pieceConfigs, Transform parent)
+        {
+            foreach (var pieceConfig in pieceConfigs)
             {
                 var pieceModel = new PieceModel(pieceConfig.Id, pieceConfig.Sprite);
-                var pieceView = GameObject.Instantiate(m_pieceViewPrefab, m_player2PiecesParent, false);
+                var pieceView = GameObject.Instantiate(m_pieceViewPrefab, parent, false);
                 pieceView.Initialize(pieceModel);
             }
         }

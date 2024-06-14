@@ -10,5 +10,13 @@ namespace JGM.Game
         {
             gameObject.name = name;
         }
+
+        public static void DestroyAllChildren(this Transform parentTransform)
+        {
+            foreach (Transform child in parentTransform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+        }
     }
 }

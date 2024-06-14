@@ -15,7 +15,7 @@
 
         public GameModel GetGameModel(GameSettings gameSettings)
         {
-            m_gameModel ??= new GameModel(gameSettings.initialScore, gameSettings.maxHealth, gameSettings.enemies);
+            m_gameModel ??= new GameModel(gameSettings);
             return m_gameModel;
         }
     }

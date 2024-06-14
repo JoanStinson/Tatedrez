@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 1474744814246091443}
   - component: {fileID: 3026102372517576690}
   m_Layer: 5
-  m_Name: PF_UI_Button
+  m_Name: PF_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

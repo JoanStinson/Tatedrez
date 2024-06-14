@@ -1,59 +1,16 @@
-﻿using System.ComponentModel;
+﻿using static JGM.Game.GameSettings;
 
 namespace JGM.Game
 {
-    public class GameModel : INotifyPropertyChanged
+    public class GameModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        public PieceConfig[] Player1PieceConfigs { get; private set; }
+        public PieceConfig[] Player2PieceConfigs { get; private set; }
 
-        private int m_score;
-        public int score
+        public GameModel(GameSettings gameSettings)
         {
-            get => m_score;
-            set
-            {
-                if (m_score != value)
-                {
-                    m_score = value;
-                    OnPropertyChanged("score");
-                }
-            }
-        }
-
-        private float m_currentHealth;
-        public float currentHealth
-        {
-            get => m_currentHealth;
-            set
-            {
-                if (m_currentHealth != value)
-                {
-                    m_currentHealth = value;
-                    OnPropertyChanged("currentHealth");
-                }
-            }
-        }
-
-        public float maxHealth { get; set; }
-        public GameSettings.EnemySettings[] enemySettings { get; private set; }
-
-        public GameModel(int score, float maxHealth, GameSettings.EnemySettings[] enemies)
-        {
-            this.score = score;
-            this.currentHealth = maxHealth;
-            this.maxHealth = maxHealth;
-            this.enemySettings = enemies;
-        }
-
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public void Reset()
-        {
-            score = 0;
-            currentHealth = maxHealth;
+            Player1PieceConfigs = gameSettings.Player1PieceConfigs;
+            Player2PieceConfigs = gameSettings.Player2PieceConfigs;
         }
     }
 }

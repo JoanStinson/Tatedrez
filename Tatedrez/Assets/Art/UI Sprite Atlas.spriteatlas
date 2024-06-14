@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Default Sprite Atlas
+  m_Name: UI Sprite Atlas
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -33,8 +33,6 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 0d8c43d4afbfe1441b9234b7322dec06, type: 3}
-    - {fileID: 2800000, guid: 576ee8cbdf3556c4e853a086497de857, type: 3}
-    - {fileID: 2800000, guid: 6084923170619e44498f4f1e3968cbeb, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -97,7 +95,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: a9ea772161fdf3945a37a570a1971079, type: 3}
   - {fileID: 21300000, guid: 6d7b7d214f21b31428bcab64113c712e, type: 3}
   - {fileID: 21300000, guid: e31bdd216ed00f54095c00ad5f96fdab, type: 3}
-  - {fileID: 21300000, guid: 6084923170619e44498f4f1e3968cbeb, type: 3}
   - {fileID: 21300000, guid: 895536317fa5cb14db82649c638f3d59, type: 3}
   - {fileID: 21300000, guid: 2fee58310284b664dafb7a6ee618310f, type: 3}
   - {fileID: 21300000, guid: 4620e831ce9df51478f62a600b051bc4, type: 3}
@@ -690,12 +687,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 999b81cbe2a1dca4fb93cdbbd832e474, type: 3}
   - {fileID: 21300000, guid: 40a932cb54221084e97aa9fa314e63d4, type: 3}
   - {fileID: 21300000, guid: cae2c8cbcea3d6d4686cbf9c1cd272c9, type: 3}
-  - {fileID: 1425562442, guid: 576ee8cbdf3556c4e853a086497de857, type: 3}
-  - {fileID: 428072470, guid: 576ee8cbdf3556c4e853a086497de857, type: 3}
-  - {fileID: 1962470289, guid: 576ee8cbdf3556c4e853a086497de857, type: 3}
-  - {fileID: -644309489, guid: 576ee8cbdf3556c4e853a086497de857, type: 3}
-  - {fileID: -1261962955, guid: 576ee8cbdf3556c4e853a086497de857, type: 3}
-  - {fileID: -487312630, guid: 576ee8cbdf3556c4e853a086497de857, type: 3}
   - {fileID: 21300000, guid: 07edebcb10c0ed34fbc1068a927b7b95, type: 3}
   - {fileID: 21300000, guid: f52980db8570c9a4cbbc9220faf9ea3d, type: 3}
   - {fileID: 21300000, guid: 9cae52db8491ed64ca82580a354128c3, type: 3}
@@ -973,7 +964,6 @@ SpriteAtlas:
   - arrow_basic_n
   - check_square_grey_checkmark
   - slide_vertical_grey_section_wide
-  - White
   - button_round_depth_border
   - slide_vertical_color_section_wide
   - button_round_depth_border
@@ -1566,12 +1556,6 @@ SpriteAtlas:
   - button_square_line
   - button_round_flat
   - button_round_line
-  - Black Rook
-  - White Knight
-  - Black Knight
-  - Black Bishop
-  - White Rook
-  - White Bishop
   - button_square_flat
   - arrow_decorative_n
   - button_round_depth_line
@@ -1792,5 +1776,5 @@ SpriteAtlas:
   - check_square_grey_square
   - button_round_depth_line
   m_RenderDataMap: {}
-  m_Tag: Default Sprite Atlas
+  m_Tag: UI Sprite Atlas
   m_IsVariant: 0

@@ -1,11 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace JGM.Game
 {
     public class Tatedrez : MonoBehaviour
     {
-        //USAR m_
+        [SerializeField]
+        private GameView m_gameView;
+
+        private void Start()
+        {
+            Run();
+        }
+
+        private void Run()
+        {
+            m_gameView.Initialize(new GameController());
+        }
     }
 }

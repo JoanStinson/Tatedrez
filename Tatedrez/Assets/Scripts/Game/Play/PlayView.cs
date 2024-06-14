@@ -43,6 +43,7 @@ namespace JGM.Game
             {
                 var pieceModel = new PieceModel(pieceConfig.Id, pieceConfig.Sprite);
                 var pieceView = GameObject.Instantiate(m_pieceViewPrefab, parent, false);
+                pieceView.gameObject.SetName(pieceConfig.Id);
                 pieceView.Initialize(pieceModel, m_canvasRect, m_slotViews);
             }
         }

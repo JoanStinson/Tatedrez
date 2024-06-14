@@ -7,13 +7,13 @@ namespace JGM.Game
     public class MainSceneSOInstaller : ScriptableObjectInstaller<MainSceneSOInstaller>
     {
         [SerializeField] private AudioLibrary m_audioLibraryInstance;
-        [SerializeField] private FontLibrary m_fontLibrary;
+        [SerializeField] private FontLibrary m_fontLibraryInstance;
         [SerializeField] private GameSettings m_gameSettingsInstance;
 
         public override void InstallBindings()
         {
             Container.Bind<AudioLibrary>().FromInstance(m_audioLibraryInstance);
-            Container.Bind<FontLibrary>().FromInstance(m_fontLibrary);
+            Container.Bind<FontLibrary>().FromInstance(m_fontLibraryInstance);
             Container.Bind<GameSettings>().FromInstance(m_gameSettingsInstance);
         }
     }

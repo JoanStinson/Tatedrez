@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using NUnit.Framework;
 using JGM.Game;
-using UnityEngine.TestTools;
 
 namespace JGM.GameTests
 {

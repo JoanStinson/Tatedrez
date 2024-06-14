@@ -5,19 +5,19 @@ namespace JGM.Game
 {
     public class PieceController : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
-        private RectTransform m_rectTransform;
-        private RectTransform m_canvasRect;
         private CellView[] m_boardCells;
+        private RectTransform m_canvasRect;
+        private RectTransform m_rectTransform;
 
         private Vector2 m_originalPosition;
         private Transform m_originalParent;
-        private CellView m_lastHighlightedSlot;
+        private CellView m_lastHighlightedCell;
 
         public void Initialize(CellView[] boardCells, RectTransform canvasRect)
         {
-            m_rectTransform = (RectTransform)transform;
-            m_canvasRect = canvasRect;
             m_boardCells = boardCells;
+            m_canvasRect = canvasRect;
+            m_rectTransform = (RectTransform)transform;
         }
 
         public void OnPointerDown(PointerEventData eventData)
@@ -37,31 +37,31 @@ namespace JGM.Game
             HighlightSlotIfPositionValid(eventData);
         }
 
-        private void HighlightSlotIfPositionValid(PointerEventData eventData)
-        {
-            m_lastHighlightedSlot = null;
-
-            foreach (CellView slotView in m_boardCells)
-            {
-                var slotRect = (RectTransform)slotView.transform;
-                RectTransformUtility.ScreenPointToLocalPointInRectangle(slotRect, eventData.position, eventData.pressEventCamera, out var slotLocalPoint);
-
-                if (slotRect.rect.Contains(slotLocalPoint))
-                {
-                    slotView.SetHighlightedColor();
-                    m_lastHighlightedSlot = slotView;
-                }
-                else
-                {
-                    slotView.SetDefaultColor();
-                }
-            }
-        }
-
         private void SetPiecePositionToMousePosition(PointerEventData eventData)
         {
             RectTransformUtility.ScreenPointToLocalPointInRectangle(m_canvasRect, eventData.position, eventData.pressEventCamera, out var localPoint);
             m_rectTransform.localPosition = localPoint;
+        }
+
+        private void HighlightSlotIfPositionValid(PointerEventData eventData)
+        {
+            m_lastHighlightedCell = null;
+
+            foreach (CellView boardCell in m_boardCells)
+            {
+                var boardCellRect = (RectTransform)boardCell.transform;
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(boardCellRect, eventData.position, eventData.pressEventCamera, out var slotLocalPoint);
+
+                if (boardCellRect.rect.Contains(slotLocalPoint))
+                {
+                    boardCell.SetHighlightedColor();
+                    m_lastHighlightedCell = boardCell;
+                }
+                else
+                {
+                    boardCell.SetDefaultColor();
+                }
+            }
         }
 
         public void OnEndDrag(PointerEventData eventData)
@@ -71,9 +71,9 @@ namespace JGM.Game
                 slot.SetDefaultColor();
             }
 
-            if (m_lastHighlightedSlot != null)
+            if (m_lastHighlightedCell != null)
             {
-                m_rectTransform.SetParent(m_lastHighlightedSlot.transform, false);
+                m_rectTransform.SetParent(m_lastHighlightedCell.transform, false);
                 m_rectTransform.localPosition = Vector3.zero;
             }
             else
@@ -81,7 +81,7 @@ namespace JGM.Game
                 ReturnToOriginalPosition();
             }
 
-            m_lastHighlightedSlot = null;
+            m_lastHighlightedCell = null;
         }
 
         private void ReturnToOriginalPosition()

@@ -27,5 +27,16 @@ namespace JGM.Game
                 }
             }
         }
+
+        public void SetCell(int row, int column, CellModel cellModel)
+        {
+            bool insideBounds = (row < m_grid.GetLength(0) && column < m_grid.GetLength(1));
+            Debug.Assert(insideBounds);
+
+            if (insideBounds)
+            {
+                m_grid[row, column] = cellModel;
+            }
+        }
     }
 }

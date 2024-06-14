@@ -4,20 +4,25 @@ namespace JGM.Game
 {
     public class CellModel
     {
-        public string PieceType { get; private set; }
+        public PieceModel PieceModel { get; private set; }
         public Color DefaultColor { get; private set; }
         public Color HighlightedColor { get; private set; }
 
-        public CellModel(string pieceType, Color defaultColor, Color highlightedColor)
+        public CellModel(PieceModel pieceModel, Color defaultColor, Color highlightedColor)
         {
-            PieceType = pieceType;
+            PieceModel = pieceModel;
             DefaultColor = defaultColor;
             HighlightedColor = highlightedColor;
         }
 
+        public void SetPieceModel(PieceModel pieceModel)
+        {
+            PieceModel = pieceModel;
+        }
+
         public bool IsEmpty()
         {
-            return PieceType != null;
+            return PieceModel != null;
         }
     }
 }

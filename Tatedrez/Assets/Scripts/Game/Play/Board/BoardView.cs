@@ -17,18 +17,21 @@ namespace JGM.Game
         {
             m_boardModel = boardModel;
 
+            int currentRow = 0;
+            int currentColumn = -1;
             for (int i = 0; i < m_cells.Length; i++)
             {
-                if (i % 2 == 0)
+                var boardCellColor = (i % 2 == 0) ? m_cellDarkBrownColor : m_cellLightBrownColor;
+                var boardCell = new CellModel(null, boardCellColor, m_cellHighlightedColor);
+                m_cells[i].Initialize(boardCell);
+
+                if (++currentColumn > 2)
                 {
-                    var lightBrownCell = new CellModel(null, m_cellDarkBrownColor, m_cellHighlightedColor);
-                    m_cells[i].Initialize(lightBrownCell);
+                    currentColumn = 0;
+                    currentRow++;
                 }
-                else
-                {
-                    var darkBrownCell = new CellModel(null, m_cellLightBrownColor, m_cellHighlightedColor);
-                    m_cells[i].Initialize(darkBrownCell);
-                }
+
+                m_boardModel.SetCell(currentRow, currentColumn, boardCell);
             }
         }
     }

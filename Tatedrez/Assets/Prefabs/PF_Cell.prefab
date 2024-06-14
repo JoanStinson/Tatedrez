@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5014927460163399549}
   - component: {fileID: 6833268836282074619}
   m_Layer: 5
-  m_Name: PF_Slot
+  m_Name: PF_Cell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

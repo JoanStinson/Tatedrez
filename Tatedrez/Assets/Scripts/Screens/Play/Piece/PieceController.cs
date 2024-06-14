@@ -5,8 +5,6 @@ namespace JGM.Game
 {
     public class PieceController : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
-        private const int m_snappingDistance = 50;
-
         private RectTransform m_rectTransform;
         private RectTransform m_canvasRect;
         private SlotView[] m_slotViews;
@@ -34,12 +32,40 @@ namespace JGM.Game
 
         public void OnDrag(PointerEventData eventData)
         {
+            SetPiecePositionToMousePosition(eventData);
+            HighlightSlotIfPositionValid(eventData);
+        }
+
+        private void HighlightSlotIfPositionValid(PointerEventData eventData)
+        {
+            foreach (SlotView slotView in m_slotViews)
+            {
+                var slotRect = (RectTransform)slotView.transform;
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(slotRect, eventData.position, eventData.pressEventCamera, out var slotLocalPoint);
+
+                if (slotRect.rect.Contains(slotLocalPoint))
+                {
+                    slotView.SetHighlightedColor();
+                }
+                else
+                {
+                    slotView.SetDefaultColor();
+                }
+            }
+        }
+
+        private void SetPiecePositionToMousePosition(PointerEventData eventData)
+        {
             RectTransformUtility.ScreenPointToLocalPointInRectangle(m_canvasRect, eventData.position, eventData.pressEventCamera, out var localPoint);
             m_rectTransform.localPosition = localPoint;
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
+            foreach (var slot in m_slotViews)
+            {
+                slot.SetDefaultColor();
+            }
             ReturnToOriginalPosition();
         }
 

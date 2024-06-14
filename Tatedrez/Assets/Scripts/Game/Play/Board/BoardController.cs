@@ -34,7 +34,7 @@ namespace JGM.Game
 
         private bool CellIsValidForPiece(CellView boardCell, RectTransform boardCellRect, Vector2 cellLocalPoint)
         {
-            return boardCellRect.rect.Contains(cellLocalPoint) /*&& boardCell.Model.IsEmpty()*/;
+            return boardCellRect.rect.Contains(cellLocalPoint) && boardCell.transform.childCount == 0;
         }
 
         public bool PieceCanBePutInCell(PieceModel pieceModel, PointerEventData eventData, ref CellView validCell)

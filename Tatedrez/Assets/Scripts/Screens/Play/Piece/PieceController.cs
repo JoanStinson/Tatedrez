@@ -40,45 +40,7 @@ namespace JGM.Game
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            SlotView closestSlot = GetClosestSlot();
-
-            if (closestSlot != null)
-            {
-                SnapToCenterOfTheSlot(closestSlot);
-            }
-            else
-            {
-                ReturnToOriginalPosition();
-            }
-        }
-
-        private SlotView GetClosestSlot()
-        {
-            SlotView closestSlot = null;
-            float closestDistance = float.MaxValue;
-
-            foreach (SlotView slot in m_slotViews)
-            {
-                float distance = Vector2.Distance(((RectTransform)slot.transform).anchoredPosition, m_rectTransform.anchoredPosition);
-                if (distance < closestDistance)
-                {
-                    closestDistance = distance;
-                    closestSlot = slot;
-                }
-            }
-
-            if (closestDistance < m_snappingDistance)
-            {
-                return closestSlot;
-            }
-
-            return null;
-        }
-
-        private void SnapToCenterOfTheSlot(SlotView closestSlot)
-        {
-            m_rectTransform.SetParent(closestSlot.transform, false);
-            m_rectTransform.anchoredPosition = Vector2.zero;
+            ReturnToOriginalPosition();
         }
 
         private void ReturnToOriginalPosition()

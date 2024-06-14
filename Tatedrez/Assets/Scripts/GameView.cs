@@ -5,6 +5,9 @@ namespace JGM.Game
 {
     public class GameView : MonoBehaviour
     {
+        public Canvas Canvas => m_canvas;
+
+        [SerializeField] private Canvas m_canvas;
         [SerializeField] private MainMenuView m_mainMenuView;
         [SerializeField] private PlayView m_playView;
         [SerializeField] private GameOverView m_gameOverView;

@@ -7,17 +7,17 @@ namespace JGM.Game
     {
         private RectTransform m_rectTransform;
         private RectTransform m_canvasRect;
-        private SlotView[] m_slotViews;
+        private CellView[] m_boardCells;
 
         private Vector2 m_originalPosition;
         private Transform m_originalParent;
-        private SlotView m_lastHighlightedSlot; // Variable to store the last highlighted slot
+        private CellView m_lastHighlightedSlot;
 
-        public void Initialize(RectTransform canvasRect, SlotView[] slotViews)
+        public void Initialize(CellView[] boardCells, RectTransform canvasRect)
         {
             m_rectTransform = (RectTransform)transform;
             m_canvasRect = canvasRect;
-            m_slotViews = slotViews;
+            m_boardCells = boardCells;
         }
 
         public void OnPointerDown(PointerEventData eventData)
@@ -39,9 +39,9 @@ namespace JGM.Game
 
         private void HighlightSlotIfPositionValid(PointerEventData eventData)
         {
-            m_lastHighlightedSlot = null; // Reset the last highlighted slot
+            m_lastHighlightedSlot = null;
 
-            foreach (SlotView slotView in m_slotViews)
+            foreach (CellView slotView in m_boardCells)
             {
                 var slotRect = (RectTransform)slotView.transform;
                 RectTransformUtility.ScreenPointToLocalPointInRectangle(slotRect, eventData.position, eventData.pressEventCamera, out var slotLocalPoint);
@@ -49,7 +49,7 @@ namespace JGM.Game
                 if (slotRect.rect.Contains(slotLocalPoint))
                 {
                     slotView.SetHighlightedColor();
-                    m_lastHighlightedSlot = slotView; // Store the last highlighted slot
+                    m_lastHighlightedSlot = slotView;
                 }
                 else
                 {
@@ -66,7 +66,7 @@ namespace JGM.Game
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            foreach (var slot in m_slotViews)
+            foreach (var slot in m_boardCells)
             {
                 slot.SetDefaultColor();
             }
@@ -74,12 +74,14 @@ namespace JGM.Game
             if (m_lastHighlightedSlot != null)
             {
                 m_rectTransform.SetParent(m_lastHighlightedSlot.transform, false);
-                m_rectTransform.localPosition = Vector3.zero; // Optionally center the piece in the slot
+                m_rectTransform.localPosition = Vector3.zero;
             }
             else
             {
                 ReturnToOriginalPosition();
             }
+
+            m_lastHighlightedSlot = null;
         }
 
         private void ReturnToOriginalPosition()

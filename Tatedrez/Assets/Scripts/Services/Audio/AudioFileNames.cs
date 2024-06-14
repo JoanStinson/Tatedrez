@@ -2,13 +2,10 @@
 {
     public static class AudioFileNames
     {
-        public const string backgroundMusic = "Background Music";
-        public const string buttonClickSfx = "Button Click";
-        public const string bulletSfx = "BULLET_1";
-        public const string missileSfx = "BULLET_2";
-        public const string explosionSfx = "DESTROY_1";
-        public const string playerDieSfx = "GAME_OVER_1";
-        public const string playerHitSfx = "hit";
-        public const string increaseScoreSfx = "coin-pickup";
+        public const string BackgroundMusic = "Background Music";
+        public const string ButtonClickSfx = "Button Click";
+        public const string ChangeTurnSfx = "Change Turn";
+        public const string PlacePieceSfx = "Place Piece";
+        public const string WinCreditsSfx = "Win Credtis";
     }
 }

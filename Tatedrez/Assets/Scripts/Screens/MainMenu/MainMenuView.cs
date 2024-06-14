@@ -30,25 +30,25 @@ namespace JGM.Game
         private void OnClickPlayVersusPlayerButton()
         {
             m_gameView.OnClickPlayVersusPlayerButton();
-            m_audioService.Play(AudioFileNames.buttonClickSfx);
+            m_audioService.Play(AudioFileNames.ButtonClickSfx);
         }
 
         private void OnClickPlayerVersusCpuButton()
         {
             m_gameView.OnClickPlayerVersusCpuButton();
-            m_audioService.Play(AudioFileNames.buttonClickSfx);
+            m_audioService.Play(AudioFileNames.ButtonClickSfx);
         }
 
         private void OnClickExitGameButton()
         {
             m_gameView.OnClickExitGameButton();
-            m_audioService.Play(AudioFileNames.buttonClickSfx);
+            m_audioService.Play(AudioFileNames.ButtonClickSfx);
         }
 
         private void OnClickChangeLanguageButton()
         {
             m_controller.ChangeLanguageToRandom();
-            m_audioService.Play(AudioFileNames.buttonClickSfx);
+            m_audioService.Play(AudioFileNames.ButtonClickSfx);
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using Zenject;
-using Zenject.Asteroids;
 
 namespace JGM.Game
 {
@@ -8,7 +7,7 @@ namespace JGM.Game
     {
         [SerializeField] private MainMenuView m_mainMenuView;
         //[SerializeField] private PlayView m_playView;
-        //[SerializeField] private GameOverView m_gameOverView;
+        [SerializeField] private GameOverView m_gameOverView;
 
         [Inject] private ILocalizationService m_localizationService;
         [Inject] private GameSettings m_gameSettings;
@@ -27,8 +26,8 @@ namespace JGM.Game
             //m_playView.Initialize(this, m_gameModel);
             //m_playView.Hide();
 
-            //m_gameOverView.Initialize(this, m_gameModel);
-            //m_gameOverView.Hide();
+            m_gameOverView.Initialize(this, null);
+            m_gameOverView.Hide();
         }
 
         public void OnClickPlayVersusPlayerButton()
@@ -48,6 +47,19 @@ namespace JGM.Game
         public void OnClickExitGameButton()
         {
             m_gameController.ExitGame();
+        }
+
+        public void OnClickPlayAgainButton()
+        {
+            m_gameOverView.Hide();
+            //pasarle por aqui el userinput o botinput
+            //m_playView.Show();
+        }
+
+        public void OnClickMainMenuButton()
+        {
+            m_gameOverView.Hide();
+            m_mainMenuView.Show();
         }
     }
 }

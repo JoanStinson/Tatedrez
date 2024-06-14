@@ -22,7 +22,7 @@ namespace JGM.Game
 
         public bool IsEmpty()
         {
-            return PieceModel != null;
+            return PieceModel == null;
         }
     }
 }

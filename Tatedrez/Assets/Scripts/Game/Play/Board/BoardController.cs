@@ -32,11 +32,6 @@ namespace JGM.Game
             }
         }
 
-        private bool CellIsValidForPiece(CellView boardCell, RectTransform boardCellRect, Vector2 cellLocalPoint)
-        {
-            return boardCellRect.rect.Contains(cellLocalPoint) && boardCell.transform.childCount == 0;
-        }
-
         public bool PieceCanBePutInCell(PieceModel pieceModel, PointerEventData eventData, ref CellView validCell)
         {
             foreach (var cell in m_cells)
@@ -47,12 +42,18 @@ namespace JGM.Game
                 if (CellIsValidForPiece(cell, cellRect, cellLocalPoint))
                 {
                     validCell = cell;
+                    validCell.Model.SetPieceModel(pieceModel);
                 }
 
                 cell.SetDefaultColor();
             }
 
             return validCell != null;
+        }
+
+        private bool CellIsValidForPiece(CellView boardCell, RectTransform boardCellRect, Vector2 cellLocalPoint)
+        {
+            return boardCellRect.rect.Contains(cellLocalPoint) && boardCell.Model.IsEmpty();
         }
     }
 }

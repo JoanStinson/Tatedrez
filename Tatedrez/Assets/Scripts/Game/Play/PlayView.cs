@@ -18,6 +18,7 @@ namespace JGM.Game
         {
             m_playController = new PlayController(gameModel);
             m_boardView.Initialize(gameModel, new BoardModel(3, 3));
+            m_boardView.OnPiecePlaced += OnPiecePlaced;
 
             var canvasRect = (RectTransform)gameView.Canvas.transform;
             for (int i = 0; i < m_piecesSpawnViews.Length; i++)
@@ -26,12 +27,24 @@ namespace JGM.Game
             }
         }
 
+        private void OnPiecePlaced()
+        {
+            int playerTurn = m_playController.ChangePlayerTurn();
+            SetPlayerTurn(playerTurn, playerTurn ^ 1);
+        }
+
+        private void SetPlayerTurn(int playerTurn, int nonPlayerTurn)
+        {
+            m_playerTurnText.SetIntegerValue(playerTurn + 1);
+            m_piecesSpawnViews[playerTurn].EnableInteraction();
+            m_piecesSpawnViews[nonPlayerTurn].DisableInteraction();
+        }
+
         public override void Show()
         {
             base.Show();
             int playerTurn = m_playController.StartNewGame();
-            m_piecesSpawnViews[0].EnableInteraction();
-            m_piecesSpawnViews[1].DisableInteraction();
+            SetPlayerTurn(playerTurn, playerTurn ^ 1);
             m_coroutineService.StartExternalCoroutine(DisablePiecesSpawnLayoutGroups());
         }
 

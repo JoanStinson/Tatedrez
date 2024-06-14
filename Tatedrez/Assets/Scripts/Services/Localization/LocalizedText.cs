@@ -46,5 +46,11 @@ namespace JGM.Game
         {
             m_text.text = $"{m_localizationService.Localize(localizedKey)}{extraText}";
         }
+
+        public void SetIntegerValue(int value)
+        {
+            RefreshText();
+            m_text.text = m_text.text.Replace("[X]", value.ToString());
+        }
     }
 }

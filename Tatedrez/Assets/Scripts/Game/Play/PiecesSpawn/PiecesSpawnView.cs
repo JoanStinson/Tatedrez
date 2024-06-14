@@ -44,7 +44,7 @@ namespace JGM.Game
 
             foreach (var instance in m_pieceViewInstances)
             {
-                instance.SetEnabledColorAlpha();
+                instance.EnableInteraction();
             }
         }
 
@@ -54,7 +54,7 @@ namespace JGM.Game
 
             foreach (var instance in m_pieceViewInstances)
             {
-                instance.SetDisabledColorAlpha();
+                instance.DisableInteraction();
             }
         }
     }

@@ -40,13 +40,15 @@ namespace JGM.Game
             m_pieceController.OnEndDrag(eventData);
         }
 
-        public void SetEnabledColorAlpha()
+        public void EnableInteraction()
         {
+            m_image.raycastTarget = true;
             m_image.color = new Color(m_image.color.r, m_image.color.g, m_image.color.b, Model.EnabledColorAlpha);
         }
 
-        public void SetDisabledColorAlpha()
+        public void DisableInteraction()
         {
+            m_image.raycastTarget = false;
             m_image.color = new Color(m_image.color.r, m_image.color.g, m_image.color.b, Model.DisabledColorAlpha);
         }
     }

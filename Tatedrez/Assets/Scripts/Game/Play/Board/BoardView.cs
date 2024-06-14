@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace JGM.Game
 {
     public class BoardView : MonoBehaviour
     {
-        public CellView[] Cells => m_cells;
+        public Action OnPiecePlaced { get; set; }
 
         [SerializeField]
         private CellView[] m_cells;
@@ -49,7 +50,12 @@ namespace JGM.Game
         public bool PieceCanBePutInCell(PieceModel pieceModel, PointerEventData eventData, out CellView validCell)
         {
             validCell = null;
-            return m_boardController.PieceCanBePutInCell(pieceModel, eventData, ref validCell);
+            bool putPieceInCell = m_boardController.PieceCanBePutInCell(pieceModel, eventData, ref validCell);
+            if (putPieceInCell)
+            {
+                OnPiecePlaced?.Invoke();
+            }
+            return putPieceInCell;
         }
     }
 }

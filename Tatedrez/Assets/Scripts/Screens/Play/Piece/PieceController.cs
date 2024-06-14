@@ -11,6 +11,7 @@ namespace JGM.Game
 
         private Vector2 m_originalPosition;
         private Transform m_originalParent;
+        private SlotView m_lastHighlightedSlot; // Variable to store the last highlighted slot
 
         public void Initialize(RectTransform canvasRect, SlotView[] slotViews)
         {
@@ -38,6 +39,8 @@ namespace JGM.Game
 
         private void HighlightSlotIfPositionValid(PointerEventData eventData)
         {
+            m_lastHighlightedSlot = null; // Reset the last highlighted slot
+
             foreach (SlotView slotView in m_slotViews)
             {
                 var slotRect = (RectTransform)slotView.transform;
@@ -46,6 +49,7 @@ namespace JGM.Game
                 if (slotRect.rect.Contains(slotLocalPoint))
                 {
                     slotView.SetHighlightedColor();
+                    m_lastHighlightedSlot = slotView; // Store the last highlighted slot
                 }
                 else
                 {
@@ -66,7 +70,16 @@ namespace JGM.Game
             {
                 slot.SetDefaultColor();
             }
-            ReturnToOriginalPosition();
+
+            if (m_lastHighlightedSlot != null)
+            {
+                m_rectTransform.SetParent(m_lastHighlightedSlot.transform, false);
+                m_rectTransform.localPosition = Vector3.zero; // Optionally center the piece in the slot
+            }
+            else
+            {
+                ReturnToOriginalPosition();
+            }
         }
 
         private void ReturnToOriginalPosition()

@@ -34,7 +34,6 @@ SpriteAtlas:
     packables:
     - {fileID: 102900000, guid: 0d8c43d4afbfe1441b9234b7322dec06, type: 3}
     - {fileID: 2800000, guid: 576ee8cbdf3556c4e853a086497de857, type: 3}
-    - {fileID: 2800000, guid: cfa8445c00017f941b3aec30b8ac1ca5, type: 3}
     - {fileID: 2800000, guid: 6084923170619e44498f4f1e3968cbeb, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
@@ -726,7 +725,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: fba5c24c58c34544486d555769e25f62, type: 3}
   - {fileID: 21300000, guid: 9b25484c726bbd74c93586ee1a64ab7c, type: 3}
   - {fileID: 21300000, guid: d0a7615c38c6b5d4586f9d5d585ab38e, type: 3}
-  - {fileID: 21300000, guid: cfa8445c00017f941b3aec30b8ac1ca5, type: 3}
   - {fileID: 21300000, guid: f402cb5c0a972b3468ea139b1944a458, type: 3}
   - {fileID: 21300000, guid: 52452f5c729253f49a7b07e678bce04a, type: 3}
   - {fileID: 21300000, guid: ecaffc6c9d8d70643b248cd41c47f04f, type: 3}
@@ -1603,7 +1601,6 @@ SpriteAtlas:
   - button_rectangle_border
   - slide_horizontal_grey
   - arrow_basic_n
-  - language icon
   - slide_vertical_grey
   - arrow_decorative_w_small
   - arrow_decorative_e

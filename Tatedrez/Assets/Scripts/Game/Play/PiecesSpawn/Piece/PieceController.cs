@@ -3,27 +3,28 @@ using UnityEngine.EventSystems;
 
 namespace JGM.Game
 {
-    public class PieceController : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class PieceController
     {
-        private CellView[] m_boardCells;
-        private RectTransform m_canvasRect;
-        private RectTransform m_rectTransform;
+        private readonly PieceModel m_pieceModel;
+        private readonly RectTransform m_canvasRect;
+        private readonly BoardView m_boardView;
+        private readonly RectTransform m_rectTransform;
 
-        private Vector2 m_originalPosition;
-        private Transform m_originalParent;
-        private CellView m_lastHighlightedCell;
+        private Vector2 m_startingPosition;
+        private Transform m_startingParent;
 
-        public void Initialize(CellView[] boardCells, RectTransform canvasRect)
+        public PieceController(PieceModel pieceModel, RectTransform canvasRect, BoardView boardView, RectTransform rectTransform)
         {
-            m_boardCells = boardCells;
+            m_pieceModel = pieceModel;
             m_canvasRect = canvasRect;
-            m_rectTransform = (RectTransform)transform;
+            m_boardView = boardView;
+            m_rectTransform = rectTransform;
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            m_originalPosition = m_rectTransform.anchoredPosition;
-            m_originalParent = m_rectTransform.parent;
+            m_startingPosition = m_rectTransform.anchoredPosition;
+            m_startingParent = m_rectTransform.parent;
         }
 
         public void OnBeginDrag(PointerEventData eventData)
@@ -34,7 +35,7 @@ namespace JGM.Game
         public void OnDrag(PointerEventData eventData)
         {
             SetPiecePositionToMousePosition(eventData);
-            HighlightSlotIfPositionValid(eventData);
+            m_boardView.HighlightValidCellForPiece(m_pieceModel, eventData);
         }
 
         private void SetPiecePositionToMousePosition(PointerEventData eventData)
@@ -43,51 +44,28 @@ namespace JGM.Game
             m_rectTransform.localPosition = localPoint;
         }
 
-        private void HighlightSlotIfPositionValid(PointerEventData eventData)
-        {
-            m_lastHighlightedCell = null;
-
-            foreach (CellView boardCell in m_boardCells)
-            {
-                var boardCellRect = (RectTransform)boardCell.transform;
-                RectTransformUtility.ScreenPointToLocalPointInRectangle(boardCellRect, eventData.position, eventData.pressEventCamera, out var slotLocalPoint);
-
-                if (boardCellRect.rect.Contains(slotLocalPoint))
-                {
-                    boardCell.SetHighlightedColor();
-                    m_lastHighlightedCell = boardCell;
-                }
-                else
-                {
-                    boardCell.SetDefaultColor();
-                }
-            }
-        }
-
         public void OnEndDrag(PointerEventData eventData)
         {
-            foreach (var slot in m_boardCells)
+            if (m_boardView.PieceCanBePutInCell(m_pieceModel, eventData, out var validCell))
             {
-                slot.SetDefaultColor();
-            }
-
-            if (m_lastHighlightedCell != null)
-            {
-                m_rectTransform.SetParent(m_lastHighlightedCell.transform, false);
-                m_rectTransform.localPosition = Vector3.zero;
+                PutPieceInCell(validCell);
             }
             else
             {
-                ReturnToOriginalPosition();
+                ReturnPieceToStartingPosition();
             }
-
-            m_lastHighlightedCell = null;
         }
 
-        private void ReturnToOriginalPosition()
+        private void PutPieceInCell(CellView cellView)
         {
-            m_rectTransform.SetParent(m_originalParent, false);
-            m_rectTransform.anchoredPosition = m_originalPosition;
+            m_rectTransform.SetParent(cellView.transform, false);
+            m_rectTransform.localPosition = Vector3.zero;
+        }
+
+        private void ReturnPieceToStartingPosition()
+        {
+            m_rectTransform.SetParent(m_startingParent, false);
+            m_rectTransform.anchoredPosition = m_startingPosition;
         }
     }
 }

@@ -1,23 +1,43 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace JGM.Game
 {
-    public class PieceView : MonoBehaviour
+    public class PieceView : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         public PieceModel Model { get; private set; }
 
         [SerializeField]
         private Image m_image;
 
-        private PieceController m_controller;
+        private PieceController m_pieceController;
 
-        public void Initialize(PieceModel pieceModel, CellView[] boardCells, RectTransform canvasRect)
+        public void Initialize(PieceModel pieceModel, BoardView boardView, RectTransform canvasRect)
         {
             Model = pieceModel;
             m_image.sprite = pieceModel.Sprite;
-            m_controller = gameObject.AddComponent<PieceController>();
-            m_controller.Initialize(boardCells, canvasRect);
+            m_pieceController = new PieceController(pieceModel, canvasRect, boardView, (RectTransform)transform);
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            m_pieceController.OnPointerDown(eventData);
+        }
+
+        public void OnBeginDrag(PointerEventData eventData)
+        {
+            m_pieceController.OnBeginDrag(eventData);
+        }
+
+        public void OnDrag(PointerEventData eventData)
+        {
+            m_pieceController.OnDrag(eventData);
+        }
+
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            m_pieceController.OnEndDrag(eventData);
         }
 
         public void SetEnabledColorAlpha()

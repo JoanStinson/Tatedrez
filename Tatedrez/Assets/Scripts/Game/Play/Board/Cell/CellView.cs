@@ -5,6 +5,8 @@ namespace JGM.Game
 {
     public class CellView : MonoBehaviour
     {
+        public CellModel Model => m_cellModel;
+
         [SerializeField]
         private Image m_image;
 

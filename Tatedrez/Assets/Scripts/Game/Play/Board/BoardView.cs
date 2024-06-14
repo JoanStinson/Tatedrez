@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace JGM.Game
 {
@@ -10,11 +11,13 @@ namespace JGM.Game
         private CellView[] m_cells;
 
         private BoardModel m_boardModel;
+        private BoardController m_boardController;
 
         public void Initialize(GameModel gameModel, BoardModel boardModel)
         {
             m_boardModel = boardModel;
             InitializeBoardCells(gameModel);
+            m_boardController = new BoardController(boardModel, m_cells);
         }
 
         private void InitializeBoardCells(GameModel gameModel)
@@ -36,6 +39,17 @@ namespace JGM.Game
 
                 m_boardModel.SetCell(currentRow, currentColumn, boardCell);
             }
+        }
+
+        public void HighlightValidCellForPiece(PieceModel pieceModel, PointerEventData eventData)
+        {
+            m_boardController.HighlightValidCellForPiece(pieceModel, eventData);
+        }
+
+        public bool PieceCanBePutInCell(PieceModel pieceModel, PointerEventData eventData, out CellView validCell)
+        {
+            validCell = null;
+            return m_boardController.PieceCanBePutInCell(pieceModel, eventData, ref validCell);
         }
     }
 }

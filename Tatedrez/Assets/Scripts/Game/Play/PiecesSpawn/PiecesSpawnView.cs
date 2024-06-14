@@ -14,12 +14,12 @@ namespace JGM.Game
 
         private readonly List<PieceView> m_pieceViewInstances = new List<PieceView>();
 
-        public void Initialize(GameModel gameModel, int playerIndex, CellView[] boardCells, RectTransform canvasRect)
+        public void Initialize(GameModel gameModel, int playerIndex, BoardView boardView, RectTransform canvasRect)
         {
-            InstantiatePieces(gameModel, playerIndex, boardCells, canvasRect);
+            InstantiatePieces(gameModel, playerIndex, boardView, canvasRect);
         }
 
-        private void InstantiatePieces(GameModel gameModel, int playerIndex, CellView[] boardCells, RectTransform canvasRect)
+        private void InstantiatePieces(GameModel gameModel, int playerIndex, BoardView boardView, RectTransform canvasRect)
         {
             m_piecesSpawnParent.transform.DestroyAllChildren();
 
@@ -27,7 +27,7 @@ namespace JGM.Game
             {
                 var pieceModel = new PieceModel(pieceConfig.Id, pieceConfig.Sprite, gameModel.PieceEnabledColorAlpha, gameModel.PieceDisabledColorAlpha);
                 var pieceView = Instantiate(m_pieceViewPrefab, m_piecesSpawnParent.transform, false);
-                pieceView.Initialize(pieceModel, boardCells, canvasRect);
+                pieceView.Initialize(pieceModel, boardView, canvasRect);
                 pieceView.gameObject.SetName(pieceConfig.Id);
                 m_pieceViewInstances.Add(pieceView);
             }

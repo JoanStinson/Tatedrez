@@ -22,7 +22,7 @@ namespace JGM.Game
             var canvasRect = (RectTransform)gameView.Canvas.transform;
             for (int i = 0; i < m_piecesSpawnViews.Length; i++)
             {
-                m_piecesSpawnViews[i].Initialize(gameModel, i, m_boardView.Cells, canvasRect);
+                m_piecesSpawnViews[i].Initialize(gameModel, i, m_boardView, canvasRect);
             }
         }
 

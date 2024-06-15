@@ -11,7 +11,7 @@ namespace JGM.Game
 
         private GameView m_gameView;
 
-        public void Initialize(GameView gameView)
+        public override void Initialize(GameView gameView)
         {
             m_gameView = gameView;
             m_playAgainButton.onClick.AddListener(OnClickPlayAgainButton);

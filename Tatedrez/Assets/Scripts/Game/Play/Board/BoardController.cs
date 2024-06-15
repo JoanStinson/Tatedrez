@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using UnityEngine.EventSystems;
-
-namespace JGM.Game
+﻿namespace JGM.Game
 {
     public class BoardController
     {
@@ -12,7 +9,7 @@ namespace JGM.Game
             m_boardModel = boardModel;
         }
 
-        public bool CellIsValidForPiece(CellView cell, PieceView pieceView)
+        public bool CellIsValidForPiece(CellView cell, PieceView piece)
         {
             return cell.IsEmpty;
         }

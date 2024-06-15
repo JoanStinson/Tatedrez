@@ -16,18 +16,18 @@ namespace JGM.Game
         private PlayController m_playController;
         private BoardModel m_boardModel;
 
-        public void Initialize(GameModel gameModel, GameView gameView)
+        public override void Initialize(GameView gameView)
         {
             m_gameView = gameView;
-            m_playController = new PlayController(gameModel);
+            m_playController = new PlayController(m_gameView.Model);
             m_boardModel = new BoardModel(3, 3);
-            m_boardView.Initialize(gameModel, m_boardModel);
+            m_boardView.Initialize(m_gameView.Model, m_boardModel);
             m_boardView.OnPiecePlaced += OnPiecePlaced;
 
             var canvasTransform = (RectTransform)gameView.Canvas.transform;
             for (int i = 0; i < m_piecesSpawnViews.Length; i++)
             {
-                m_piecesSpawnViews[i].Initialize(gameModel, i, m_boardView, canvasTransform);
+                m_piecesSpawnViews[i].Initialize(m_gameView.Model, i, m_boardView, canvasTransform);
             }
         }
 

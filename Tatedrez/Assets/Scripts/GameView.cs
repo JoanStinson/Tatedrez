@@ -6,11 +6,12 @@ namespace JGM.Game
     public class GameView : MonoBehaviour
     {
         public Canvas Canvas => m_canvas;
+        public GameModel Model => m_gameModel;
 
         [SerializeField] private Canvas m_canvas;
-        [SerializeField] private MainMenuView m_mainMenuView;
-        [SerializeField] private PlayView m_playView;
-        [SerializeField] private GameOverView m_gameOverView;
+        [SerializeField] private ScreenView m_mainMenuView;
+        [SerializeField] private ScreenView m_playView;
+        [SerializeField] private ScreenView m_gameOverView;
 
         [Inject] private GameSettings m_gameSettings;
         [Inject] private IAudioService m_audioService;
@@ -25,7 +26,7 @@ namespace JGM.Game
             m_gameModel = m_gameController.BuildGameModel(m_gameSettings);
 
             m_mainMenuView.Initialize(this);
-            m_playView.Initialize(m_gameModel, this);
+            m_playView.Initialize(this);
             m_gameOverView.Initialize(this);
 
             m_mainMenuView.Hide();

@@ -29,15 +29,14 @@ namespace JGM.Game
 
             for (int i = 0; i < m_cells.Length; i++)
             {
-                var boardCellColor = (i % 2 == 0) ? gameModel.BoardCellDarkBrownColor : gameModel.BoardCellLightBrownColor;
-                var boardCell = new CellModel(null, boardCellColor, gameModel.BoardCellHighlightedColor);
-
                 if (++currentColumn > 2)
                 {
                     currentColumn = 0;
                     currentRow++;
                 }
 
+                var boardCellColor = (i % 2 == 0) ? gameModel.BoardCellDarkBrownColor : gameModel.BoardCellLightBrownColor;
+                var boardCell = new CellModel(null, boardCellColor, gameModel.BoardCellHighlightedColor, new Vector2Int(currentRow, currentColumn));
                 m_cells[i].Initialize(boardCell, currentRow, currentColumn);
                 m_boardModel.SetCell(currentRow, currentColumn, boardCell);
             }

@@ -24,7 +24,8 @@ namespace JGM.Game
                 return cell.IsEmpty;
             }
 
-            return m_movementValidators[piece.Model.PieceType].CellIsValidForPiece(cell, piece);
+            var validator = m_movementValidators[piece.Model.PieceType];
+            return cell.IsEmpty && validator.CellIsValidForPiece(cell.Model.Coordinates, piece.CellView.Model.Coordinates, boardModel);
         }
     }
 }

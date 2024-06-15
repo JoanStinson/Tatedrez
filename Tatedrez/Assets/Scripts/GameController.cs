@@ -5,16 +5,23 @@ namespace JGM.Game
 {
     public class GameController
     {
+        private readonly IAudioService m_audioService;
         private readonly ILocalizationService m_localizationService;
 
-        public GameController(ILocalizationService localizationService)
+        public GameController(IAudioService audioService, ILocalizationService localizationService)
         {
+            m_audioService = audioService;
             m_localizationService = localizationService;
         }
 
         public GameModel BuildGameModel(GameSettings gameSettings)
         {
             return new GameModel(gameSettings);
+        }
+
+        public void PlayButtonClickSfx()
+        {
+            m_audioService.Play(AudioFileNames.ButtonClickSfx);
         }
 
         public void ChangeLanguageToRandom()

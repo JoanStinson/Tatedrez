@@ -21,9 +21,9 @@ namespace JGM.Game
 
         public void Initialize()
         {
-            m_gameController = new GameController(m_localizationService);
-
+            m_gameController = new GameController(m_audioService, m_localizationService);
             m_gameModel = m_gameController.BuildGameModel(m_gameSettings);
+
             m_mainMenuView.Initialize(this);
             m_playView.Initialize(m_gameModel, this);
             m_gameOverView.Initialize(this);
@@ -38,7 +38,7 @@ namespace JGM.Game
             m_gameModel.PlayerVersusCpu = false;
             m_mainMenuView.Hide();
             m_playView.Show();
-            m_audioService.Play(AudioFileNames.ButtonClickSfx);
+            m_gameController.PlayButtonClickSfx();
         }
 
         public void OnClickPlayVersusCpuButton()
@@ -46,40 +46,40 @@ namespace JGM.Game
             m_gameModel.PlayerVersusCpu = true;
             m_mainMenuView.Hide();
             m_playView.Show();
-            m_audioService.Play(AudioFileNames.ButtonClickSfx);
+            m_gameController.PlayButtonClickSfx();
         }
 
         public void OnClickExitGameButton()
         {
             m_gameController.ExitGame();
-            m_audioService.Play(AudioFileNames.ButtonClickSfx);
+            m_gameController.PlayButtonClickSfx();
         }
 
         public void OnClickChangeLanguageButton()
         {
             m_gameController.ChangeLanguageToRandom();
-            m_audioService.Play(AudioFileNames.ButtonClickSfx);
+            m_gameController.PlayButtonClickSfx();
         }
 
         public void OnPlayerWin()
         {
             m_playView.Hide();
             m_gameOverView.Show();
-            m_audioService.Play(AudioFileNames.ButtonClickSfx);
+            m_gameController.PlayButtonClickSfx();
         }
 
         public void OnClickPlayAgainButton()
         {
             m_gameOverView.Hide();
             m_playView.Show();
-            m_audioService.Play(AudioFileNames.ButtonClickSfx);
+            m_gameController.PlayButtonClickSfx();
         }
 
         public void OnClickMainMenuButton()
         {
             m_gameOverView.Hide();
             m_mainMenuView.Show();
-            m_audioService.Play(AudioFileNames.ButtonClickSfx);
+            m_gameController.PlayButtonClickSfx();
         }
     }
 }

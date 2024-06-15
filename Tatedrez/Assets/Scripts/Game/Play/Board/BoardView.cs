@@ -19,7 +19,7 @@ namespace JGM.Game
         {
             m_boardModel = boardModel;
             InitializeBoardCells(gameModel);
-            m_boardController = new BoardController(boardModel, m_cells);
+            m_boardController = new BoardController(boardModel);
         }
 
         private void InitializeBoardCells(GameModel gameModel)
@@ -45,16 +45,48 @@ namespace JGM.Game
 
         public void HighlightCellIfValidForPiece(PieceView pieceView, PointerEventData eventData)
         {
-            m_boardController.HighlightCellIfValidForPiece(pieceView, eventData);
+            foreach (var cell in m_cells)
+            {
+                var cellTransform = (RectTransform)cell.transform;
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(cellTransform, eventData.position, eventData.pressEventCamera, out var cellLocalPoint);
+
+                if (cellTransform.rect.Contains(cellLocalPoint) &&
+                    m_boardController.CellIsValidForPiece(cell, pieceView))
+                {
+                    cell.SetHighlightedColor();
+                }
+                else
+                {
+                    cell.SetDefaultColor();
+                }
+            }
         }
 
         public bool PlacePieceOnBoard(PieceView pieceView, PointerEventData eventData)
         {
-            bool placedPiece = m_boardController.PlacePieceOnBoard(pieceView, eventData, out var validCell);
+            bool placedPiece = false;
+
+            foreach (var cell in m_cells)
+            {
+                var cellTransform = (RectTransform)cell.transform;
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(cellTransform, eventData.position, eventData.pressEventCamera, out var cellLocalPoint);
+
+                if (cellTransform.rect.Contains(cellLocalPoint) &&
+                    m_boardController.CellIsValidForPiece(cell, pieceView))
+                {
+                    pieceView.CellView?.RemovePiece();
+                    cell.SetPiece(pieceView);
+                    placedPiece = true;
+                }
+
+                cell.SetDefaultColor();
+            }
+
             if (placedPiece)
             {
                 OnPiecePlaced?.Invoke();
             }
+
             return placedPiece;
         }
 

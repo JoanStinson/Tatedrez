@@ -99,6 +99,7 @@ namespace JGM.Game
         private IEnumerator DisablePiecesSpawnLayoutGroups()
         {
             yield return new WaitForEndOfFrame();
+
             foreach (var spawnView in m_piecesSpawnViews)
             {
                 spawnView.DisableLayoutGroup();

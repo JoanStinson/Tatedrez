@@ -8,7 +8,7 @@ namespace JGM.Game
         [SerializeField] private LocalizedText m_playerWinsText;
         [SerializeField] private Button m_playAgainButton;
         [SerializeField] private Button m_mainMenuButton;
-        [SerializeField] private Button m_exitGameButton;
+        [SerializeField] private Button m_quitButton;
 
         private GameView m_gameView;
 
@@ -17,7 +17,7 @@ namespace JGM.Game
             m_gameView = gameView;
             m_playAgainButton.onClick.AddListener(OnClickPlayAgainButton);
             m_mainMenuButton.onClick.AddListener(OnClickMainMenuButton);
-            m_exitGameButton.onClick.AddListener(OnClickExitGameButton);
+            m_quitButton.onClick.AddListener(OnClickQuitButton);
         }
 
         private void OnClickPlayAgainButton()
@@ -30,9 +30,9 @@ namespace JGM.Game
             m_gameView.OnClickMainMenuButton();
         }
 
-        private void OnClickExitGameButton()
+        private void OnClickQuitButton()
         {
-            m_gameView.OnClickExitGameButton();
+            m_gameView.OnClickQuitButton();
         }
 
         public override void Show()

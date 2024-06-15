@@ -5,7 +5,6 @@ namespace JGM.Game
 {
     public class GameModel
     {
-        public bool PlayerVersusCpu { get; set; }
         public int BoardRows { get; private set; }
         public int BoardColumns { get; private set; }
         public Color BoardCellDarkBrownColor { get; private set; }

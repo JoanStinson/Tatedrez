@@ -13,7 +13,7 @@ namespace JGM.Game
         [SerializeField] private PiecesSpawnView[] m_piecesSpawnViews;
         [SerializeField] private MessageView m_messageView;
         [SerializeField] private CanvasGroup m_canvasGroup;
-        [SerializeField] private float m_showWarningSeconds = 1f;
+        [SerializeField] private float m_showWarningSeconds = 3f;
         [SerializeField] private float m_showWinnerSeconds = 1f;
         [Inject] private ICoroutineService m_coroutineService;
 

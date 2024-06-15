@@ -1,9 +1,8 @@
 ﻿TID_GAME_TITLE=Tatedrez
-TID_PLAY_VERSUS_PLAYER=プレイヤー対プレイヤー
-TID_PLAY_VERSUS_CPU=プレイヤー対CPU
-TID_EXIT_GAME=ゲームを終了する
+TID_PLAY=プレイ
+TID_QUIT=終了
 TID_PLAYER_TURN=プレイヤー[X]のターン
-TID_PLAYER_CANNOT_MOVE=プレイヤー[X]は移動できません\nターンを変えてください！
+TID_PLAYER_CANNOT_MOVE=プレイヤー[X]は動けません\nターンを変えてください！
 TID_PLAYER_WINS=プレイヤー[X]の勝利！
 TID_PLAY_AGAIN=もう一度プレイ
 TID_MAIN_MENU=メインメニュー

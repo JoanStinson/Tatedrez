@@ -1,7 +1,6 @@
 ﻿TID_GAME_TITLE=Tatedrez
-TID_PLAY_VERSUS_PLAYER=Play vs Player
-TID_PLAY_VERSUS_CPU=Play vs CPU
-TID_EXIT_GAME=Exit Game
+TID_PLAY=Play
+TID_QUIT=Quit
 TID_PLAYER_TURN=Player [X] Turn
 TID_PLAYER_CANNOT_MOVE=Player [X] Cannot Move\nChange Turn!
 TID_PLAYER_WINS=Player [X] Wins!

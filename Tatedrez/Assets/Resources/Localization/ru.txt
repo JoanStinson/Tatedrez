@@ -1,7 +1,6 @@
 ﻿TID_GAME_TITLE=Tatedrez
-TID_PLAY_VERSUS_PLAYER=Играть против игрока
-TID_PLAY_VERSUS_CPU=Играть против ИИ
-TID_EXIT_GAME=Выйти из игры
+TID_PLAY=Играть
+TID_QUIT=Выйти
 TID_PLAYER_TURN=Ход игрока [X]
 TID_PLAYER_CANNOT_MOVE=Игрок [X] не может двигаться\nСмените ход!
 TID_PLAYER_WINS=Игрок [X] победил!

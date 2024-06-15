@@ -29,28 +29,19 @@ namespace JGM.Game
             m_playView.Initialize(this);
             m_gameOverView.Initialize(this);
 
-            m_mainMenuView.Hide();
-            m_playView.Show();
+            m_mainMenuView.Show();
+            m_playView.Hide();
             m_gameOverView.Hide();
         }
 
-        public void OnClickPlayVersusPlayerButton()
+        public void OnClickPlayButton()
         {
-            m_gameModel.PlayerVersusCpu = false;
             m_mainMenuView.Hide();
             m_playView.Show();
             m_gameController.PlayButtonClickSfx();
         }
 
-        public void OnClickPlayVersusCpuButton()
-        {
-            m_gameModel.PlayerVersusCpu = true;
-            m_mainMenuView.Hide();
-            m_playView.Show();
-            m_gameController.PlayButtonClickSfx();
-        }
-
-        public void OnClickExitGameButton()
+        public void OnClickQuitButton()
         {
             m_gameController.ExitGame();
             m_gameController.PlayButtonClickSfx();

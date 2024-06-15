@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace JGM.Game
 {
@@ -6,7 +7,6 @@ namespace JGM.Game
     {
         public int Rows => m_rows;
         public int Columns => m_columns;
-        public int PiecesOnBoard { get; set; }
 
         private readonly CellModel[,] m_grid;
         private readonly int m_rows;
@@ -19,7 +19,6 @@ namespace JGM.Game
             m_columns = columns;
             m_grid = new CellModel[3, 3];
             ClearCells();
-            PiecesOnBoard = 0;
         }
 
         private void ClearCells()
@@ -42,6 +41,24 @@ namespace JGM.Game
             {
                 m_grid[row, column] = cellModel;
             }
+        }
+
+        public int GetPiecesOnBoard()
+        {
+            int piecesOnBoard = 0;
+
+            for (int i = 0; i < m_rows; i++)
+            {
+                for (int j = 0; j < m_columns; j++)
+                {
+                    if (m_grid[i, j].PieceModel != null)
+                    {
+                        piecesOnBoard++;
+                    }
+                }
+            }
+
+            return piecesOnBoard;
         }
     }
 }

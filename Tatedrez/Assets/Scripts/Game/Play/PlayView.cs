@@ -33,32 +33,38 @@ namespace JGM.Game
 
         private void OnPiecePlaced()
         {
-            if (m_boardView.PiecesOnBoard < m_boardModel.Rows + m_boardModel.Columns)
+            bool allPiecesPlaced = (m_boardView.PiecesOnBoard == m_boardModel.Rows + m_boardModel.Columns);
+            if (allPiecesPlaced)
             {
-                int playerTurn = m_playController.ChangePlayerTurn();
-                m_playerTurnText.SetIntegerValue(playerTurn + 1);
-                m_piecesSpawnViews[playerTurn].EnableNonPlacedPiecesInteraction();
-                m_piecesSpawnViews[playerTurn ^ 1].DisableAllPiecesInteraction();
+                bool ticTacToe = m_boardView.CheckTicTacToe();
+                if (ticTacToe)
+                {
+                    m_gameView.OnPlayerWin();
+                    return;
+                }
+
+                int newTurn = m_playController.ChangePlayerTurn();
+                SetPlayerTurn(newTurn, newTurn ^ 1, true);
                 return;
             }
 
-            bool ticTacToe = m_boardView.CheckTicTacToe();
-            if (ticTacToe)
-            {
-                m_gameView.OnPlayerWin();
-                return;
-            }
-
-            int turn = m_playController.ChangePlayerTurn();
-            m_playerTurnText.SetIntegerValue(turn + 1);
-            m_piecesSpawnViews[turn].EnableAllPiecesInteraction();
-            m_piecesSpawnViews[turn ^ 1].DisableAllPiecesInteraction();
+            int playerTurn = m_playController.ChangePlayerTurn();
+            SetPlayerTurn(playerTurn, playerTurn ^ 1, false);
         }
 
-        private void SetPlayerTurn(int playerTurn, int nonPlayerTurn)
+        private void SetPlayerTurn(int playerTurn, int nonPlayerTurn, bool enableAllPieces)
         {
             m_playerTurnText.SetIntegerValue(playerTurn + 1);
-            m_piecesSpawnViews[playerTurn].EnableAllPiecesInteraction();
+
+            if (enableAllPieces)
+            {
+                m_piecesSpawnViews[playerTurn].EnableAllPiecesInteraction();
+            }
+            else
+            {
+                m_piecesSpawnViews[playerTurn].EnableNonPlacedPiecesInteraction();
+            }
+
             m_piecesSpawnViews[nonPlayerTurn].DisableAllPiecesInteraction();
         }
 
@@ -66,7 +72,7 @@ namespace JGM.Game
         {
             base.Show();
             int playerTurn = m_playController.StartNewGame();
-            SetPlayerTurn(playerTurn, playerTurn ^ 1);
+            SetPlayerTurn(playerTurn, playerTurn ^ 1, true);
             m_coroutineService.StartExternalCoroutine(DisablePiecesSpawnLayoutGroups());
         }
 

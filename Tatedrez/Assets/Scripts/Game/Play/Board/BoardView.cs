@@ -7,7 +7,7 @@ namespace JGM.Game
     public class BoardView : MonoBehaviour
     {
         public Action OnPiecePlaced { get; set; }
-        public int PiecesOnBoard => m_boardModel.PiecesOnBoard;
+        public int PiecesOnBoard => m_boardModel.GetPiecesOnBoard();
 
         [SerializeField]
         private CellView[] m_cells;

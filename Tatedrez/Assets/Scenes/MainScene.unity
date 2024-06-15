@@ -3120,6 +3120,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_messageText: {fileID: 1450082853}
+  m_showPosition: -2000
+  m_hidePosition: 2000
+  m_animationDuration: 1
 --- !u!224 &1925343726
 RectTransform:
   m_ObjectHideFlags: 0

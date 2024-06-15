@@ -119,7 +119,7 @@ namespace JGM.Game
             int playerTurn = m_playController.GetPlayerTurn();
             m_messageView.ShowMessage(playerTurn + 1);
             await Task.Delay(TimeSpan.FromSeconds(m_showWarningSeconds));
-            m_messageView.HideMessage();
+            m_messageView.HideMessage(true);
             m_canvasGroup.blocksRaycasts = true;
         }
 
@@ -152,7 +152,7 @@ namespace JGM.Game
                 spawnView.DisableLayoutGroup();
             }
 
-            m_messageView.HideMessage();
+            m_messageView.HideMessage(false);
         }
     }
 }

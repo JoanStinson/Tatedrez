@@ -48,10 +48,9 @@ namespace JGM.Game
 
                 if (CellIsValidForPiece(cell, cellTransform, cellLocalPoint))
                 {
+                    pieceView.CellView?.RemovePiece();
                     validCell = cell;
-                    m_boardModel.SetPieceInCell(validCell.Row, validCell.Column, pieceView.Model);
-                    pieceView.transform.SetParent(validCell.transform, false);
-                    pieceView.transform.localPosition = Vector3.zero;
+                    validCell.SetPiece(pieceView);
                 }
 
                 cell.SetDefaultColor();

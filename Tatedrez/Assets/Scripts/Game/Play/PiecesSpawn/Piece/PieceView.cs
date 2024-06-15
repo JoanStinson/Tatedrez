@@ -7,6 +7,7 @@ namespace JGM.Game
     public class PieceView : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         public PieceModel Model { get; private set; }
+        public CellView CellView { get; set; }
 
         [SerializeField]
         private Image m_image;

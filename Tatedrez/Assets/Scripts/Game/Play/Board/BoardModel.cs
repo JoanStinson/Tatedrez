@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace JGM.Game
 {
@@ -40,17 +39,6 @@ namespace JGM.Game
             if (insideBounds)
             {
                 m_grid[row, column] = cellModel;
-            }
-        }
-
-        public void SetPieceInCell(int row, int column, PieceModel pieceModel)
-        {
-            bool insideBounds = (row < m_grid.GetLength(0) && column < m_grid.GetLength(1));
-            Debug.Assert(insideBounds);
-
-            if (insideBounds)
-            {
-                m_grid[row, column].SetPieceModel(pieceModel);
             }
         }
     }

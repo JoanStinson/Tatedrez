@@ -1,14 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace JGM.Game
 {
     public class CellView : MonoBehaviour
     {
-        public int Row { get; private set; }
-        public int Column { get; private set; }
         public bool IsEmpty => m_cellModel.PieceModel == null;
-        public PieceModel PieceModel => m_cellModel.PieceModel;
 
         [SerializeField]
         private Image m_image;
@@ -18,8 +16,6 @@ namespace JGM.Game
         public void Initialize(CellModel cellModel, int row, int column)
         {
             m_cellModel = cellModel;
-            Row = row;
-            Column = column;
             SetDefaultColor();
         }
 
@@ -31,6 +27,19 @@ namespace JGM.Game
         public void SetHighlightedColor()
         {
             m_image.color = m_cellModel.HighlightedColor;
+        }
+
+        public void SetPiece(PieceView pieceView)
+        {
+            pieceView.CellView = this;
+            pieceView.transform.SetParent(transform, false);
+            pieceView.transform.localPosition = Vector3.zero;
+            m_cellModel.SetPieceModel(pieceView.Model);
+        }
+
+        public void RemovePiece()
+        {
+            m_cellModel.RemovePieceModel();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -8,7 +9,7 @@ namespace JGM.Game
 {
     public class PlayView : ScreenView
     {
-        [SerializeField] private LocalizedText m_playerTurnText;
+        [SerializeField] private AnimatedText m_playerTurnText;
         [SerializeField] private BoardView m_boardView;
         [SerializeField] private PiecesSpawnView[] m_piecesSpawnViews;
         [SerializeField] private MessageView m_messageView;

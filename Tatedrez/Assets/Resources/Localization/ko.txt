@@ -3,6 +3,7 @@ TID_PLAY_VERSUS_PLAYER=플레이어 대 플레이어
 TID_PLAY_VERSUS_CPU=플레이어 대 CPU
 TID_EXIT_GAME=게임 종료
 TID_PLAYER_TURN=플레이어 [X]의 차례
+TID_PLAYER_CANNOT_MOVE=플레이어 [X]는(은) 움직일 수 없습니다\n턴을 변경하세요!
 TID_PLAYER_WINS=플레이어 [X] 승리!
 TID_PLAY_AGAIN=다시 플레이
 TID_MAIN_MENU=메인 메뉴

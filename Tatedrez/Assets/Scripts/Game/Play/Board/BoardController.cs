@@ -1,4 +1,6 @@
-﻿namespace JGM.Game
+﻿using System.Collections.Generic;
+
+namespace JGM.Game
 {
     public class BoardController
     {
@@ -13,7 +15,7 @@
             m_boardResultController = new BoardResultController();
         }
 
-        public bool CellIsValidForPiece(CellView cell, PieceView piece)
+        public bool CellIsValidForPiece(CellModel cell, PieceView piece)
         {
             return m_boardMovementController.CellIsValidForPiece(cell, piece, m_boardModel);
         }
@@ -21,6 +23,11 @@
         public bool CheckTicTacToe()
         {
             return m_boardResultController.CheckTicTactoe(m_boardModel);
+        }
+
+        public bool AnyPieceFromPlayerCanMove(IReadOnlyList<PieceView> pieces, BoardModel boardModel)
+        {
+            return m_boardMovementController.AnyPieceFromPlayerCanMove(pieces, boardModel);
         }
     }
 }

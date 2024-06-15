@@ -6,21 +6,24 @@ namespace JGM.Game
     {
         private int m_playerTurn;
 
-        public int MakeStartingTurnRandom()
+        public void GenerateFirstTurnRandomly()
         {
             m_playerTurn = Random.Range(0, 2);
-            return m_playerTurn;
         }
 
-        public int ChangePlayerTurn()
+        public void ChangePlayerTurn()
         {
             m_playerTurn ^= 1;
-            return m_playerTurn;
         }
 
         public int GetPlayerTurn()
         {
             return m_playerTurn;
+        }
+
+        public int GetNonPlayerTurn()
+        {
+            return m_playerTurn ^ 1;
         }
     }
 }

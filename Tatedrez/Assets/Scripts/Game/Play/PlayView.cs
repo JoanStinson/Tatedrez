@@ -11,15 +11,18 @@ namespace JGM.Game
         [SerializeField] private LocalizedText m_playerTurnText;
         [SerializeField] private BoardView m_boardView;
         [SerializeField] private PiecesSpawnView[] m_piecesSpawnViews;
+        [SerializeField] private MessageView m_messageView;
         [SerializeField] private CanvasGroup m_canvasGroup;
+        [SerializeField] private float m_showWarningSeconds = 1f;
         [SerializeField] private float m_showWinnerSeconds = 1f;
         [Inject] private ICoroutineService m_coroutineService;
 
-        private const int m_piecesForTicTacToe = 5;
+        private const int m_minBoardPiecesForTicTacToe = 5;
 
         private GameView m_gameView;
         private PlayController m_playController;
         private RectTransform m_canvasTransform;
+        private BoardModel m_boardModel;
 
         public override void Initialize(GameView gameView)
         {
@@ -27,43 +30,62 @@ namespace JGM.Game
             m_playController = new PlayController();
             m_canvasTransform = (RectTransform)gameView.Canvas.transform;
 
-            var boardModel = new BoardModel(gameView.Model.BoardRows, gameView.Model.BoardColumns);
-            m_boardView.Initialize(m_gameView.Model, boardModel);
+            m_boardModel = new BoardModel(gameView.Model.BoardRows, gameView.Model.BoardColumns);
+            m_boardView.Initialize(m_gameView.Model, m_boardModel);
             m_boardView.OnPiecePlaced += OnPiecePlaced;
+            m_messageView.HideMessage();
             InitializePieces();
         }
 
         private async void OnPiecePlaced()
         {
-            if (m_boardView.PiecesOnBoard >= m_piecesForTicTacToe && m_boardView.CheckTicTacToe())
+            if (TicTacToeFound())
             {
-                int playerWinId = m_playController.GetPlayerTurn();
-                m_boardView.HighlightPlayerWinCells(playerWinId);
-                m_canvasGroup.blocksRaycasts = false;
-                EnableAllPieces();
-
-                await Task.Delay(TimeSpan.FromSeconds(m_showWinnerSeconds));
-                m_gameView.OnPlayerWin(playerWinId);
+                await OnTicTacToeFound();
                 return;
             }
 
-            int playerTurn = m_playController.ChangePlayerTurn();
-            SetPlayerTurn(playerTurn, playerTurn ^ 1, m_boardView.PiecesOnBoard > m_piecesForTicTacToe);
+            ChangePlayerTurn();
+            await CheckIfPlayerCanMove();
         }
 
-        private void EnableAllPieces()
+        private bool TicTacToeFound()
         {
+            bool piecesAmountRequired = (m_boardView.CalculatePiecesAmount() >= m_minBoardPiecesForTicTacToe);
+            if (!piecesAmountRequired)
+            {
+                return false;
+            }
+
+            bool ticTacToe = m_boardView.CheckTicTacToe();
+            return ticTacToe;
+        }
+
+        private async Task OnTicTacToeFound()
+        {
+            int playerWinId = m_playController.GetPlayerTurn();
+            m_boardView.HighlightPlayerWinCells(playerWinId);
             foreach (var piecesSpawnView in m_piecesSpawnViews)
             {
                 piecesSpawnView.EnableAllPiecesInteraction();
             }
+            m_canvasGroup.blocksRaycasts = false;
+            await Task.Delay(TimeSpan.FromSeconds(m_showWinnerSeconds));
+            m_gameView.OnPlayerWin(playerWinId);
         }
 
-        private void SetPlayerTurn(int playerTurn, int nonPlayerTurn, bool enableAllPieces)
+        private void ChangePlayerTurn()
         {
-            m_playerTurnText.SetIntegerValue(playerTurn + 1);
+            m_playController.ChangePlayerTurn();
+            SetPlayerTurn();
+        }
 
-            if (enableAllPieces)
+        private void SetPlayerTurn()
+        {
+            int playerTurn = m_playController.GetPlayerTurn();
+            int nonPlayerTurn = m_playController.GetNonPlayerTurn();
+
+            if (m_boardView.PiecesOnBoard > m_minBoardPiecesForTicTacToe)
             {
                 m_piecesSpawnViews[playerTurn].EnableAllPiecesInteraction();
             }
@@ -72,7 +94,35 @@ namespace JGM.Game
                 m_piecesSpawnViews[playerTurn].EnableNonPlacedPiecesInteraction();
             }
 
+            m_playerTurnText.SetIntegerValue(playerTurn + 1);
             m_piecesSpawnViews[nonPlayerTurn].DisableAllPiecesInteraction();
+        }
+
+        private async Task CheckIfPlayerCanMove()
+        {
+            bool allPiecesArePlacedOnBoard = (m_boardView.PiecesOnBoard == m_boardModel.Rows + m_boardModel.Columns);
+            if (!allPiecesArePlacedOnBoard)
+            {
+                return;
+            }
+
+            int playerTurn = m_playController.GetPlayerTurn();
+            bool playerCannotMove = !m_boardView.AnyPieceFromPlayerCanMove(m_piecesSpawnViews[playerTurn].GetPieces(), m_boardModel);
+            if (playerCannotMove)
+            {
+                await DisplayCannotMoveMessage();
+                ChangePlayerTurn();
+            }
+        }
+
+        private async Task DisplayCannotMoveMessage()
+        {
+            m_canvasGroup.blocksRaycasts = false;
+            int playerTurn = m_playController.GetPlayerTurn();
+            m_messageView.ShowMessage(playerTurn + 1);
+            await Task.Delay(TimeSpan.FromSeconds(m_showWarningSeconds));
+            m_messageView.HideMessage();
+            m_canvasGroup.blocksRaycasts = true;
         }
 
         private void InitializePieces()
@@ -87,13 +137,12 @@ namespace JGM.Game
         {
             base.Show();
             m_canvasGroup.blocksRaycasts = true;
-
             m_boardView.ClearBoard();
             InitializePieces();
-
-            int playerTurn = m_playController.MakeStartingTurnRandom();
-            SetPlayerTurn(playerTurn, playerTurn ^ 1, true);
-            m_coroutineService.StartExternalCoroutine(DisablePiecesSpawnLayoutGroups());
+            m_playController.GenerateFirstTurnRandomly();
+            SetPlayerTurn();
+            var coroutine = DisablePiecesSpawnLayoutGroups();
+            m_coroutineService.StartExternalCoroutine(coroutine);
         }
 
         private IEnumerator DisablePiecesSpawnLayoutGroups()

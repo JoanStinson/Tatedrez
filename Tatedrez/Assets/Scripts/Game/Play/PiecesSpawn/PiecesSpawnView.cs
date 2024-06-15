@@ -76,5 +76,10 @@ namespace JGM.Game
                 }
             }
         }
+
+        public IReadOnlyList<PieceView> GetPieces()
+        {
+            return m_pieceViewInstances;
+        }
     }
 }

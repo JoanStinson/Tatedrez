@@ -6,7 +6,6 @@ namespace JGM.Game
     public class CellView : MonoBehaviour
     {
         public CellModel Model => m_cellModel;
-        public bool IsEmpty => m_cellModel.PieceModel == null;
 
         [SerializeField]
         private Image m_image;

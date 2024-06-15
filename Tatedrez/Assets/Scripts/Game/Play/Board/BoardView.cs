@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,7 +8,7 @@ namespace JGM.Game
     public class BoardView : MonoBehaviour
     {
         public Action OnPiecePlaced { get; set; }
-        public int PiecesOnBoard => m_boardModel.GetPiecesOnBoard();
+        public int PiecesOnBoard => m_boardModel.PiecesOnBoard;
 
         [SerializeField]
         private CellView[] m_cells;
@@ -49,8 +50,7 @@ namespace JGM.Game
                 var cellTransform = (RectTransform)cell.transform;
                 RectTransformUtility.ScreenPointToLocalPointInRectangle(cellTransform, eventData.position, eventData.pressEventCamera, out var cellLocalPoint);
 
-                if (cellTransform.rect.Contains(cellLocalPoint) &&
-                    m_boardController.CellIsValidForPiece(cell, pieceView))
+                if (cellTransform.rect.Contains(cellLocalPoint) && m_boardController.CellIsValidForPiece(cell.Model, pieceView))
                 {
                     cell.SetHighlightedColor();
                 }
@@ -70,8 +70,7 @@ namespace JGM.Game
                 var cellTransform = (RectTransform)cell.transform;
                 RectTransformUtility.ScreenPointToLocalPointInRectangle(cellTransform, eventData.position, eventData.pressEventCamera, out var cellLocalPoint);
 
-                if (cellTransform.rect.Contains(cellLocalPoint) &&
-                    m_boardController.CellIsValidForPiece(cell, pieceView))
+                if (cellTransform.rect.Contains(cellLocalPoint) && m_boardController.CellIsValidForPiece(cell.Model, pieceView))
                 {
                     pieceView.CellView?.RemovePiece();
                     cell.SetPiece(pieceView);
@@ -113,6 +112,16 @@ namespace JGM.Game
                     cell.SetHighlightedColor();
                 }
             }
+        }
+
+        public int CalculatePiecesAmount()
+        {
+            return m_boardModel.CalculatePiecesAmount();
+        }
+
+        public bool AnyPieceFromPlayerCanMove(IReadOnlyList<PieceView> pieces, BoardModel boardModel)
+        {
+            return m_boardController.AnyPieceFromPlayerCanMove(pieces, boardModel);
         }
     }
 }

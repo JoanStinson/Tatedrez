@@ -8,6 +8,7 @@ namespace JGM.Game
         public Color DefaultColor { get; private set; }
         public Color HighlightedColor { get; private set; }
         public Vector2Int Coordinates { get; private set; }
+        public bool IsEmpty => PieceModel == null;
 
         public CellModel(PieceModel pieceModel, Color defaultColor, Color highlightedColor, Vector2Int coordinates)
         {

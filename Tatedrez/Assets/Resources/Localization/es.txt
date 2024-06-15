@@ -3,6 +3,7 @@ TID_PLAY_VERSUS_PLAYER=Jugar contra Jugador
 TID_PLAY_VERSUS_CPU=Jugar contra CPU
 TID_EXIT_GAME=Salir del Juego
 TID_PLAYER_TURN=Turno del Jugador [X]
+TID_PLAYER_CANNOT_MOVE=Jugador [X] no puede moverse\n¡Cambia el turno!
 TID_PLAYER_WINS=¡El Jugador [X] Gana!
 TID_PLAY_AGAIN=Jugar de Nuevo
 TID_MAIN_MENU=Menú Principal

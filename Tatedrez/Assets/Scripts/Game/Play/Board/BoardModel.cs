@@ -6,6 +6,7 @@ namespace JGM.Game
     {
         public int Rows => m_rows;
         public int Columns => m_columns;
+        public int PiecesOnBoard { get; private set; }
 
         private readonly CellModel[,] m_grid;
         private readonly int m_rows;
@@ -43,9 +44,9 @@ namespace JGM.Game
             return null;
         }
 
-        public int GetPiecesOnBoard()
+        public int CalculatePiecesAmount()
         {
-            int piecesOnBoard = 0;
+            PiecesOnBoard = 0;
 
             for (int i = 0; i < m_rows; i++)
             {
@@ -53,12 +54,12 @@ namespace JGM.Game
                 {
                     if (m_grid[i, j].PieceModel != null)
                     {
-                        piecesOnBoard++;
+                        PiecesOnBoard++;
                     }
                 }
             }
 
-            return piecesOnBoard;
+            return PiecesOnBoard;
         }
     }
 }

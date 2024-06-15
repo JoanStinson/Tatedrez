@@ -4,6 +4,8 @@ namespace JGM.Game
 {
     public class BoardModel
     {
+        public int Rows => m_rows;
+        public int Columns => m_columns;
         public int PiecesOnBoard { get; set; }
 
         private readonly CellModel[,] m_grid;

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -38,7 +39,7 @@ namespace JGM.Game
             m_piecesSpawnParent.enabled = false;
         }
 
-        public void EnableInteraction()
+        public void EnableAllPiecesInteraction()
         {
             m_canvasGroup.blocksRaycasts = true;
 
@@ -48,13 +49,30 @@ namespace JGM.Game
             }
         }
 
-        public void DisableInteraction()
+        public void DisableAllPiecesInteraction()
         {
             m_canvasGroup.blocksRaycasts = false;
 
             foreach (var instance in m_pieceViewInstances)
             {
                 instance.DisableInteraction();
+            }
+        }
+
+        public void EnableNonPlacedPiecesInteraction()
+        {
+            m_canvasGroup.blocksRaycasts = true;
+
+            foreach (var instance in m_pieceViewInstances)
+            {
+                if (instance.CellView == null)
+                {
+                    instance.EnableInteraction();
+                }
+                else
+                {
+                    instance.DisableInteraction();
+                }
             }
         }
     }

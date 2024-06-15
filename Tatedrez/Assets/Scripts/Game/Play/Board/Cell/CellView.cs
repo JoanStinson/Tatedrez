@@ -5,16 +5,21 @@ namespace JGM.Game
 {
     public class CellView : MonoBehaviour
     {
-        public CellModel Model => m_cellModel;
+        public int Row { get; private set; }
+        public int Column { get; private set; }
+        public bool IsEmpty => m_cellModel.PieceModel == null;
+        public PieceModel PieceModel => m_cellModel.PieceModel;
 
         [SerializeField]
         private Image m_image;
 
         private CellModel m_cellModel;
 
-        public void Initialize(CellModel cellModel)
+        public void Initialize(CellModel cellModel, int row, int column)
         {
             m_cellModel = cellModel;
+            Row = row;
+            Column = column;
             SetDefaultColor();
         }
 

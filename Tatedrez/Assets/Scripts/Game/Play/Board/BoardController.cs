@@ -34,7 +34,7 @@ namespace JGM.Game
 
         private bool CellIsValidForPiece(CellView cell, RectTransform cellTransform, Vector2 cellLocalPoint)
         {
-            return cellTransform.rect.Contains(cellLocalPoint) && cell.Model.IsEmpty();
+            return cellTransform.rect.Contains(cellLocalPoint) && cell.IsEmpty;
         }
 
         public bool PlacePieceOnBoard(PieceView pieceView, PointerEventData eventData, out CellView validCell)
@@ -49,7 +49,9 @@ namespace JGM.Game
                 if (CellIsValidForPiece(cell, cellTransform, cellLocalPoint))
                 {
                     validCell = cell;
-                    validCell.Model.SetPieceModel(pieceView.Model);
+                    m_boardModel.SetPieceInCell(validCell.Row, validCell.Column, pieceView.Model);
+                    pieceView.transform.SetParent(validCell.transform, false);
+                    pieceView.transform.localPosition = Vector3.zero;
                 }
 
                 cell.SetDefaultColor();

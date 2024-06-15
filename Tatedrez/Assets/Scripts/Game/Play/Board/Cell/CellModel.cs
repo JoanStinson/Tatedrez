@@ -20,9 +20,9 @@ namespace JGM.Game
             PieceModel = pieceModel;
         }
 
-        public bool IsEmpty()
+        public void RemovePieceModel()
         {
-            return PieceModel == null;
+            PieceModel = null;
         }
     }
 }

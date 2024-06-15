@@ -31,7 +31,6 @@ namespace JGM.Game
             {
                 var boardCellColor = (i % 2 == 0) ? gameModel.BoardCellDarkBrownColor : gameModel.BoardCellLightBrownColor;
                 var boardCell = new CellModel(null, boardCellColor, gameModel.BoardCellHighlightedColor);
-                m_cells[i].Initialize(boardCell);
 
                 if (++currentColumn > 2)
                 {
@@ -39,6 +38,7 @@ namespace JGM.Game
                     currentRow++;
                 }
 
+                m_cells[i].Initialize(boardCell, currentRow, currentColumn);
                 m_boardModel.SetCell(currentRow, currentColumn, boardCell);
             }
         }
@@ -50,16 +50,12 @@ namespace JGM.Game
 
         public bool PlacePieceOnBoard(PieceView pieceView, PointerEventData eventData)
         {
-            bool placedPieceOnBoard = m_boardController.PlacePieceOnBoard(pieceView, eventData, out var validCell);
-            if (placedPieceOnBoard)
+            bool placedPiece = m_boardController.PlacePieceOnBoard(pieceView, eventData, out var validCell);
+            if (placedPiece)
             {
-                pieceView.transform.SetParent(validCell.transform, false);
-                pieceView.transform.localPosition = Vector3.zero;
-                //TODO refactor
-                m_boardModel.PiecesOnBoard++;
                 OnPiecePlaced?.Invoke();
             }
-            return placedPieceOnBoard;
+            return placedPiece;
         }
 
         public bool CheckTicTacToe()

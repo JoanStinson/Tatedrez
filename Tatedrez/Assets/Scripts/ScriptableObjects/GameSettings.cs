@@ -6,6 +6,8 @@ namespace JGM.Game
     [CreateAssetMenu(fileName = "New Game Settings", menuName = "Game Settings", order = 0)]
     public class GameSettings : ScriptableObject
     {
+        public int BoardRows => 3;
+        public int BoardColumns => 3;
         public Color BoardCellLightBrownColor => m_boardCellLightBrownColor;
         public Color BoardCellDarkBrownColor => m_boardCellDarkBrownColor;
         public Color BoardCellHighlightedColor => m_boardCellHighlightedColor;
@@ -28,8 +30,15 @@ namespace JGM.Game
         [Serializable]
         public class PieceConfig
         {
-            public string Id;
+            public PieceType PieceType;
             public Sprite Sprite;
+        }
+
+        public enum PieceType
+        {
+            Knight,
+            Rook,
+            Bishop
         }
     }
 }

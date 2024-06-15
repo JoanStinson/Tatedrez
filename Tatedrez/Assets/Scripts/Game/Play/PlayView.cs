@@ -9,19 +9,19 @@ namespace JGM.Game
         [SerializeField] private LocalizedText m_playerTurnText;
         [SerializeField] private BoardView m_boardView;
         [SerializeField] private PiecesSpawnView[] m_piecesSpawnViews;
-
         [Inject] private ICoroutineService m_coroutineService;
+
+        private const int m_piecesForTicTacToe = 5;
 
         private GameView m_gameView;
         private PlayController m_playController;
-        private BoardModel m_boardModel;
 
         public override void Initialize(GameView gameView)
         {
             m_gameView = gameView;
             m_playController = new PlayController(m_gameView.Model);
-            m_boardModel = new BoardModel(3, 3);
-            m_boardView.Initialize(m_gameView.Model, m_boardModel);
+            var boardModel = new BoardModel(gameView.Model.BoardRows, gameView.Model.BoardColumns);
+            m_boardView.Initialize(m_gameView.Model, boardModel);
             m_boardView.OnPiecePlaced += OnPiecePlaced;
 
             var canvasTransform = (RectTransform)gameView.Canvas.transform;
@@ -33,23 +33,14 @@ namespace JGM.Game
 
         private void OnPiecePlaced()
         {
-            bool allPiecesPlaced = (m_boardView.PiecesOnBoard == m_boardModel.Rows + m_boardModel.Columns);
-            if (allPiecesPlaced)
+            if (m_boardView.PiecesOnBoard >= m_piecesForTicTacToe && m_boardView.CheckTicTacToe())
             {
-                bool ticTacToe = m_boardView.CheckTicTacToe();
-                if (ticTacToe)
-                {
-                    m_gameView.OnPlayerWin();
-                    return;
-                }
-
-                int newTurn = m_playController.ChangePlayerTurn();
-                SetPlayerTurn(newTurn, newTurn ^ 1, true);
+                m_gameView.OnPlayerWin();
                 return;
             }
 
             int playerTurn = m_playController.ChangePlayerTurn();
-            SetPlayerTurn(playerTurn, playerTurn ^ 1, false);
+            SetPlayerTurn(playerTurn, playerTurn ^ 1, m_boardView.PiecesOnBoard > m_piecesForTicTacToe);
         }
 
         private void SetPlayerTurn(int playerTurn, int nonPlayerTurn, bool enableAllPieces)

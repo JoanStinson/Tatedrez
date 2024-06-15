@@ -23,12 +23,12 @@ namespace JGM.Game
         {
             m_piecesSpawnParent.transform.DestroyAllChildren();
 
-            foreach (var pieceConfig in gameModel.GetPieceConfigs(playerIndex))
+            foreach (var config in gameModel.GetPieceConfigs(playerIndex))
             {
-                var pieceModel = new PieceModel(pieceConfig.Id, pieceConfig.Sprite, gameModel.PieceEnabledColorAlpha, gameModel.PieceDisabledColorAlpha);
+                var pieceModel = new PieceModel(playerIndex, config.PieceType, config.Sprite, gameModel.PieceEnabledColorAlpha, gameModel.PieceDisabledColorAlpha);
                 var pieceView = Instantiate(m_pieceViewPrefab, m_piecesSpawnParent.transform, false);
                 pieceView.Initialize(pieceModel, boardView, canvasTransform);
-                pieceView.gameObject.SetName(pieceConfig.Id);
+                pieceView.gameObject.SetName($"Player {playerIndex + 1} {config.PieceType}");
                 m_pieceViewInstances.Add(pieceView);
             }
         }

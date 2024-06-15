@@ -6,6 +6,8 @@ namespace JGM.Game
     public class GameModel
     {
         public bool PlayerVersusCpu { get; set; }
+        public int BoardRows { get; private set; }
+        public int BoardColumns { get; private set; }
         public Color BoardCellDarkBrownColor { get; private set; }
         public Color BoardCellLightBrownColor { get; private set; }
         public Color BoardCellHighlightedColor { get; private set; }
@@ -19,6 +21,8 @@ namespace JGM.Game
         {
             m_player1PieceConfigs = gameSettings.Player1PieceConfigs;
             m_player2PieceConfigs = gameSettings.Player2PieceConfigs;
+            BoardRows = gameSettings.BoardRows;
+            BoardColumns = gameSettings.BoardColumns;
             BoardCellDarkBrownColor = gameSettings.BoardCellDarkBrownColor;
             BoardCellLightBrownColor = gameSettings.BoardCellLightBrownColor;
             BoardCellHighlightedColor = gameSettings.BoardCellHighlightedColor;

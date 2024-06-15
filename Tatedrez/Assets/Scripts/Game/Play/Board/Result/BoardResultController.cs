@@ -17,7 +17,7 @@
 
         public bool CheckTicTactoe(BoardModel boardModel)
         {
-            return m_firstResultChain.CheckResult(boardModel);
+            return m_firstResultChain.CheckTicTacToe(boardModel);
         }
     }
 }

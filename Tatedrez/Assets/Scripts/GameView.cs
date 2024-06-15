@@ -64,8 +64,8 @@ namespace JGM.Game
 
         public void OnPlayerWin()
         {
-            m_playView.Hide();
-            m_gameOverView.Show();
+            //m_playView.Hide();
+            //m_gameOverView.Show();
             m_gameController.PlayButtonClickSfx();
         }
 

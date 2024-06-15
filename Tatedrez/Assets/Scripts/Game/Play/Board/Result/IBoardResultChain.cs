@@ -4,6 +4,6 @@
     {
         IBoardResultChain NextChain { get; }
 
-        bool CheckResult(BoardModel boardModel);
+        bool CheckTicTacToe(BoardModel boardModel);
     }
 }

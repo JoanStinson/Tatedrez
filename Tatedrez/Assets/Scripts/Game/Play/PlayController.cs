@@ -1,18 +1,14 @@
-﻿namespace JGM.Game
+﻿using UnityEngine;
+
+namespace JGM.Game
 {
     public class PlayController
     {
-        private readonly GameModel m_gameModel;
         private int m_playerTurn;
 
-        public PlayController(GameModel gameModel)
+        public int MakeStartingTurnRandom()
         {
-            m_gameModel = gameModel;
-        }
-
-        public int StartNewGame()
-        {
-            m_playerTurn = 0;
+            m_playerTurn = Random.Range(0, 2);
             return m_playerTurn;
         }
 

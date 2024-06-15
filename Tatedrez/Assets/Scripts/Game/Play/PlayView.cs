@@ -24,7 +24,7 @@ namespace JGM.Game
         public override void Initialize(GameView gameView)
         {
             m_gameView = gameView;
-            m_playController = new PlayController(m_gameView.Model);
+            m_playController = new PlayController();
             m_canvasTransform = (RectTransform)gameView.Canvas.transform;
 
             var boardModel = new BoardModel(gameView.Model.BoardRows, gameView.Model.BoardColumns);
@@ -91,7 +91,7 @@ namespace JGM.Game
             m_boardView.ClearBoard();
             InitializePieces();
 
-            int playerTurn = m_playController.StartNewGame();
+            int playerTurn = m_playController.MakeStartingTurnRandom();
             SetPlayerTurn(playerTurn, playerTurn ^ 1, true);
             m_coroutineService.StartExternalCoroutine(DisablePiecesSpawnLayoutGroups());
         }

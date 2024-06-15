@@ -1,5 +1,4 @@
-﻿using DG.Tweening;
-using System;
+﻿using System;
 using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -13,7 +12,6 @@ namespace JGM.Game
         [SerializeField] private BoardView m_boardView;
         [SerializeField] private PiecesSpawnView[] m_piecesSpawnViews;
         [SerializeField] private MessageView m_messageView;
-        [SerializeField] private CanvasGroup m_canvasGroup;
         [SerializeField] private float m_showWarningSeconds = 3f;
         [SerializeField] private float m_showWinnerSeconds = 1f;
         [Inject] private ICoroutineService m_coroutineService;
@@ -34,7 +32,6 @@ namespace JGM.Game
             m_boardModel = new BoardModel(gameView.Model.BoardRows, gameView.Model.BoardColumns);
             m_boardView.Initialize(m_gameView.Model, m_boardModel);
             m_boardView.OnPiecePlaced += OnPiecePlaced;
-            m_messageView.HideMessage();
             InitializePieces();
         }
 
@@ -154,6 +151,8 @@ namespace JGM.Game
             {
                 spawnView.DisableLayoutGroup();
             }
+
+            m_messageView.HideMessage();
         }
     }
 }

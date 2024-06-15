@@ -28,8 +28,8 @@ namespace JGM.Game
             m_playView.Initialize(m_gameModel, this);
             m_gameOverView.Initialize(this);
 
-            m_mainMenuView.Show();
-            m_playView.Hide();
+            m_mainMenuView.Hide();
+            m_playView.Show();
             m_gameOverView.Hide();
         }
 
@@ -58,6 +58,13 @@ namespace JGM.Game
         public void OnClickChangeLanguageButton()
         {
             m_gameController.ChangeLanguageToRandom();
+            m_audioService.Play(AudioFileNames.ButtonClickSfx);
+        }
+
+        public void OnPlayerWin()
+        {
+            m_playView.Hide();
+            m_gameOverView.Show();
             m_audioService.Play(AudioFileNames.ButtonClickSfx);
         }
 

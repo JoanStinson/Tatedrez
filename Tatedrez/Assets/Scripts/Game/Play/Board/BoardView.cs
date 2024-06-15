@@ -7,6 +7,7 @@ namespace JGM.Game
     public class BoardView : MonoBehaviour
     {
         public Action OnPiecePlaced { get; set; }
+        public int PiecesOnBoard => m_boardModel.PiecesOnBoard;
 
         [SerializeField]
         private CellView[] m_cells;
@@ -42,20 +43,28 @@ namespace JGM.Game
             }
         }
 
-        public void HighlightValidCellForPiece(PieceModel pieceModel, PointerEventData eventData)
+        public void HighlightCellIfValidForPiece(PieceView pieceView, PointerEventData eventData)
         {
-            m_boardController.HighlightValidCellForPiece(pieceModel, eventData);
+            m_boardController.HighlightCellIfValidForPiece(pieceView, eventData);
         }
 
-        public bool PieceCanBePutInCell(PieceModel pieceModel, PointerEventData eventData, out CellView validCell)
+        public bool PlacePieceOnBoard(PieceView pieceView, PointerEventData eventData)
         {
-            validCell = null;
-            bool putPieceInCell = m_boardController.PieceCanBePutInCell(pieceModel, eventData, ref validCell);
-            if (putPieceInCell)
+            bool placedPieceOnBoard = m_boardController.PlacePieceOnBoard(pieceView, eventData, out var validCell);
+            if (placedPieceOnBoard)
             {
+                pieceView.transform.SetParent(validCell.transform, false);
+                pieceView.transform.localPosition = Vector3.zero;
+                //TODO refactor
+                m_boardModel.PiecesOnBoard++;
                 OnPiecePlaced?.Invoke();
             }
-            return putPieceInCell;
+            return placedPieceOnBoard;
+        }
+
+        public bool CheckTicTacToe()
+        {
+            return m_boardController.CheckTicTacToe();
         }
     }
 }

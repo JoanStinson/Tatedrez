@@ -11,33 +11,57 @@ namespace JGM.Game
         [SerializeField]
         private Image m_image;
 
-        private PieceController m_pieceController;
+        private BoardView m_boardView;
+        private RectTransform m_canvasTransform;
+        private RectTransform m_transform;
+        private Vector2 m_startingPosition;
+        private Transform m_startingParent;
 
-        public void Initialize(PieceModel pieceModel, BoardView boardView, RectTransform canvasRect)
+        public void Initialize(PieceModel pieceModel, BoardView boardView, RectTransform canvasTransform)
         {
             Model = pieceModel;
-            m_image.sprite = pieceModel.Sprite;
-            m_pieceController = new PieceController(pieceModel, canvasRect, boardView, (RectTransform)transform);
+            m_boardView = boardView;
+            m_canvasTransform = canvasTransform;
+            m_image.sprite = Model.Sprite;
+            m_transform = (RectTransform)transform;
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            m_pieceController.OnPointerDown(eventData);
+            m_startingPosition = m_transform.anchoredPosition;
+            m_startingParent = m_transform.parent;
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            m_pieceController.OnBeginDrag(eventData);
+            m_transform.SetParent(m_transform.root, true);
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            m_pieceController.OnDrag(eventData);
+            SetPiecePositionToMousePosition(eventData);
+            m_boardView.HighlightCellIfValidForPiece(this, eventData);
+        }
+
+        private void SetPiecePositionToMousePosition(PointerEventData eventData)
+        {
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(m_canvasTransform, eventData.position, eventData.pressEventCamera, out var localPoint);
+            m_transform.localPosition = localPoint;
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            m_pieceController.OnEndDrag(eventData);
+            bool placePieceOnBoard = m_boardView.PlacePieceOnBoard(this, eventData);
+            if (!placePieceOnBoard)
+            {
+                ReturnPieceToStartingPosition();
+            }
+        }
+
+        private void ReturnPieceToStartingPosition()
+        {
+            m_transform.SetParent(m_startingParent, false);
+            m_transform.anchoredPosition = m_startingPosition;
         }
 
         public void EnableInteraction()

@@ -12,23 +12,35 @@ namespace JGM.Game
 
         [Inject] private ICoroutineService m_coroutineService;
 
+        private GameView m_gameView;
         private PlayController m_playController;
 
         public void Initialize(GameModel gameModel, GameView gameView)
         {
+            m_gameView = gameView;
             m_playController = new PlayController(gameModel);
             m_boardView.Initialize(gameModel, new BoardModel(3, 3));
             m_boardView.OnPiecePlaced += OnPiecePlaced;
 
-            var canvasRect = (RectTransform)gameView.Canvas.transform;
+            var canvasTransform = (RectTransform)gameView.Canvas.transform;
             for (int i = 0; i < m_piecesSpawnViews.Length; i++)
             {
-                m_piecesSpawnViews[i].Initialize(gameModel, i, m_boardView, canvasRect);
+                m_piecesSpawnViews[i].Initialize(gameModel, i, m_boardView, canvasTransform);
             }
         }
 
         private void OnPiecePlaced()
         {
+            if (m_boardView.PiecesOnBoard == 6)
+            {
+                bool ticTacToe = m_boardView.CheckTicTacToe();
+                if (ticTacToe)
+                {
+                    m_gameView.OnPlayerWin();
+                    return;
+                }
+            }
+
             int playerTurn = m_playController.ChangePlayerTurn();
             SetPlayerTurn(playerTurn, playerTurn ^ 1);
         }

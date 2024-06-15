@@ -14,14 +14,14 @@ namespace JGM.Game
             m_cells = cells;
         }
 
-        public void HighlightValidCellForPiece(PieceModel pieceModel, PointerEventData eventData)
+        public void HighlightCellIfValidForPiece(PieceView pieceView, PointerEventData eventData)
         {
             foreach (var cell in m_cells)
             {
-                var cellRect = (RectTransform)cell.transform;
-                RectTransformUtility.ScreenPointToLocalPointInRectangle(cellRect, eventData.position, eventData.pressEventCamera, out var cellLocalPoint);
+                var cellTransform = (RectTransform)cell.transform;
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(cellTransform, eventData.position, eventData.pressEventCamera, out var cellLocalPoint);
 
-                if (CellIsValidForPiece(cell, cellRect, cellLocalPoint))
+                if (CellIsValidForPiece(cell, cellTransform, cellLocalPoint))
                 {
                     cell.SetHighlightedColor();
                 }
@@ -32,17 +32,24 @@ namespace JGM.Game
             }
         }
 
-        public bool PieceCanBePutInCell(PieceModel pieceModel, PointerEventData eventData, ref CellView validCell)
+        private bool CellIsValidForPiece(CellView cell, RectTransform cellTransform, Vector2 cellLocalPoint)
         {
+            return cellTransform.rect.Contains(cellLocalPoint) && cell.Model.IsEmpty();
+        }
+
+        public bool PlacePieceOnBoard(PieceView pieceView, PointerEventData eventData, out CellView validCell)
+        {
+            validCell = null;
+
             foreach (var cell in m_cells)
             {
-                var cellRect = (RectTransform)cell.transform;
-                RectTransformUtility.ScreenPointToLocalPointInRectangle(cellRect, eventData.position, eventData.pressEventCamera, out var cellLocalPoint);
+                var cellTransform = (RectTransform)cell.transform;
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(cellTransform, eventData.position, eventData.pressEventCamera, out var cellLocalPoint);
 
-                if (CellIsValidForPiece(cell, cellRect, cellLocalPoint))
+                if (CellIsValidForPiece(cell, cellTransform, cellLocalPoint))
                 {
                     validCell = cell;
-                    validCell.Model.SetPieceModel(pieceModel);
+                    validCell.Model.SetPieceModel(pieceView.Model);
                 }
 
                 cell.SetDefaultColor();
@@ -51,9 +58,9 @@ namespace JGM.Game
             return validCell != null;
         }
 
-        private bool CellIsValidForPiece(CellView boardCell, RectTransform boardCellRect, Vector2 cellLocalPoint)
+        public bool CheckTicTacToe()
         {
-            return boardCellRect.rect.Contains(cellLocalPoint) && boardCell.Model.IsEmpty();
+            return false;
         }
     }
 }

@@ -3798,6 +3798,8 @@ MonoBehaviour:
   m_piecesSpawnViews:
   - {fileID: 274825838}
   - {fileID: 1506433666}
+  m_canvasGroup: {fileID: 510700393080814813}
+  m_showWinnerSeconds: 1
 --- !u!224 &510700393439392800
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3863,6 +3865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 012d423b7ab86ff43a05be79f07ba617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_playerWinsText: {fileID: 510700392328390923}
   m_playAgainButton: {fileID: 540734912}
   m_mainMenuButton: {fileID: 291945671}
   m_exitGameButton: {fileID: 1962614657}

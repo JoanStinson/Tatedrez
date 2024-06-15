@@ -1,11 +1,11 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace JGM.Game
 {
     public class CellView : MonoBehaviour
     {
+        public CellModel Model => m_cellModel;
         public bool IsEmpty => m_cellModel.PieceModel == null;
 
         [SerializeField]
@@ -40,6 +40,14 @@ namespace JGM.Game
         public void RemovePiece()
         {
             m_cellModel.RemovePieceModel();
+        }
+
+        public void DestroyPiece()
+        {
+            if (transform.childCount > 0)
+            {
+                Destroy(transform.GetChild(0).gameObject);
+            }
         }
     }
 }

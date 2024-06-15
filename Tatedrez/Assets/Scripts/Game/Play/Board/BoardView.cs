@@ -94,5 +94,26 @@ namespace JGM.Game
         {
             return m_boardController.CheckTicTacToe();
         }
+
+        public void ClearBoard()
+        {
+            foreach (var cell in m_cells)
+            {
+                cell.RemovePiece();
+                cell.DestroyPiece();
+                cell.SetDefaultColor();
+            }
+        }
+
+        public void HighlightPlayerWinCells(int playerWinId)
+        {
+            foreach (var cell in m_cells)
+            {
+                if (cell.Model.PieceModel != null && cell.Model.PieceModel.PlayerId == playerWinId)
+                {
+                    cell.SetHighlightedColor();
+                }
+            }
+        }
     }
 }

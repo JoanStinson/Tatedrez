@@ -17,11 +17,13 @@ namespace JGM.Game
         public void Initialize(GameModel gameModel, int playerIndex, BoardView boardView, RectTransform canvasTransform)
         {
             InstantiatePieces(gameModel, playerIndex, boardView, canvasTransform);
+            m_piecesSpawnParent.enabled = true;
         }
 
         private void InstantiatePieces(GameModel gameModel, int playerIndex, BoardView boardView, RectTransform canvasTransform)
         {
             m_piecesSpawnParent.transform.DestroyAllChildren();
+            m_pieceViewInstances.Clear();
 
             foreach (var config in gameModel.GetPieceConfigs(playerIndex))
             {

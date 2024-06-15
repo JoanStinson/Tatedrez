@@ -5,6 +5,7 @@ namespace JGM.Game
 {
     public class GameOverView : ScreenView
     {
+        [SerializeField] private LocalizedText m_playerWinsText;
         [SerializeField] private Button m_playAgainButton;
         [SerializeField] private Button m_mainMenuButton;
         [SerializeField] private Button m_exitGameButton;
@@ -32,6 +33,12 @@ namespace JGM.Game
         private void OnClickExitGameButton()
         {
             m_gameView.OnClickExitGameButton();
+        }
+
+        public override void Show()
+        {
+            base.Show();
+            m_playerWinsText.SetIntegerValue(m_gameView.Model.LastPlayerWinId + 1);
         }
     }
 }

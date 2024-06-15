@@ -62,11 +62,11 @@ namespace JGM.Game
             m_gameController.PlayButtonClickSfx();
         }
 
-        public void OnPlayerWin()
+        public void OnPlayerWin(int playerWinId)
         {
-            //m_playView.Hide();
-            //m_gameOverView.Show();
-            m_gameController.PlayButtonClickSfx();
+            m_gameModel.LastPlayerWinId = playerWinId;
+            m_playView.Hide();
+            m_gameOverView.Show();
         }
 
         public void OnClickPlayAgainButton()

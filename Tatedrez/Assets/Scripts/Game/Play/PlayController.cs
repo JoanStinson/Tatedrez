@@ -21,5 +21,10 @@
             m_playerTurn ^= 1;
             return m_playerTurn;
         }
+
+        public int GetPlayerTurn()
+        {
+            return m_playerTurn;
+        }
     }
 }

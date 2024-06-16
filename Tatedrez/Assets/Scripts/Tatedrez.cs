@@ -9,6 +9,7 @@ namespace JGM.Game
 
         private void Start()
         {
+            Application.targetFrameRate = 60;
             Run();
         }
 

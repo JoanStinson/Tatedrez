@@ -6,11 +6,9 @@ namespace JGM.Game
     public class PlayController
     {
         private const int m_minBoardPiecesForTicTacToe = 5;
-
         private readonly BoardView m_boardView;
-
-        private int m_playerTurn;
         private BoardModel m_boardModel;
+        private int m_playerTurn;
 
         public PlayController(BoardView boardView)
         {

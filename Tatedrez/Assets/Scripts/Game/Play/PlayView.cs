@@ -12,7 +12,7 @@ namespace JGM.Game
         [SerializeField] private BoardView m_boardView;
         [SerializeField] private PiecesSpawnView[] m_piecesSpawnViews;
         [SerializeField] private MessageView m_messageView;
-        [SerializeField] private float m_showWarningSeconds = 3f;
+        [SerializeField] private float m_showMessageSeconds = 3f;
         [SerializeField] private float m_showWinnerSeconds = 1f;
         [Inject] private ICoroutineService m_coroutineService;
 
@@ -99,7 +99,7 @@ namespace JGM.Game
             m_canvasGroup.blocksRaycasts = false;
             int playerTurn = m_playController.GetPlayerTurn();
             m_messageView.ShowMessage(playerTurn + 1);
-            await Task.Delay(TimeSpan.FromSeconds(m_showWarningSeconds));
+            await Task.Delay(TimeSpan.FromSeconds(m_showMessageSeconds));
             m_messageView.HideMessage(true);
             m_canvasGroup.blocksRaycasts = true;
         }
@@ -115,11 +115,12 @@ namespace JGM.Game
         public override void Show()
         {
             base.Show();
-            m_canvasGroup.blocksRaycasts = true;
             m_boardView.ClearBoard();
             InitializePieces();
             m_playController.GenerateFirstTurnRandomly();
             SetPlayerTurn();
+
+            m_canvasGroup.blocksRaycasts = true;
             var coroutine = DisablePiecesSpawnLayoutGroups();
             m_coroutineService.StartExternalCoroutine(coroutine);
         }

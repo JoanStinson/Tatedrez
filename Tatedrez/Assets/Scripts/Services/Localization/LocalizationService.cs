@@ -7,14 +7,14 @@ namespace JGM.Game
     public sealed partial class LocalizationService : ILocalizationService
     {
         public class LanguageChangedEvent : UnityEvent<Language, Language> { }
-        public LanguageChangedEvent onLanguageChanged { get; set; } = new LanguageChangedEvent();
-        public Language currentLanguage { get; private set; } = Language.Count;
+        public LanguageChangedEvent OnLanguageChanged { get; set; } = new LanguageChangedEvent();
+        public Language CurrentLanguage { get; private set; } = Language.Count;
 
         private const Language m_defaultLanguage = Language.English;
         private const string m_dataFolder = "Localization/";
         private const string m_configFilePath = "Localization/Data/localization_data";
 
-        private LanguageData m_currentLanguageData => m_languages[currentLanguage];
+        private LanguageData m_currentLanguageData => m_languages[CurrentLanguage];
         private Dictionary<Language, LanguageData> m_languages;
 
         public LocalizationService()
@@ -46,9 +46,9 @@ namespace JGM.Game
                 return;
             }
 
-            var previousLanguage = currentLanguage;
-            currentLanguage = language;
-            onLanguageChanged?.Invoke(previousLanguage, currentLanguage);
+            var previousLanguage = CurrentLanguage;
+            CurrentLanguage = language;
+            OnLanguageChanged?.Invoke(previousLanguage, CurrentLanguage);
         }
 
         public string Localize(string textId)

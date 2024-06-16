@@ -10,8 +10,8 @@ namespace JGM.Game
         [SerializeField]
         protected CanvasGroup m_canvasGroup;
 
-        private const int m_showPosition = -2000;
-        private const int m_hidePosition = 2000;
+        private const int m_showPositionInX = -2000;
+        private const int m_hidePositionInX = 2000;
         private const float m_animationDuration = 1f;
 
         public abstract void Initialize(GameView gameView);
@@ -21,8 +21,9 @@ namespace JGM.Game
             m_canvasGroup.blocksRaycasts = false;
             gameObject.SetActive(true);
             var rectTransform = (RectTransform)gameObject.transform;
-            rectTransform.DOAnchorPos(new Vector2(m_showPosition, 0), 0);
+            rectTransform.DOAnchorPos(new Vector2(m_showPositionInX, 0), 0);
             rectTransform.DOAnchorPos(Vector2.zero, m_animationDuration);
+
             await Task.Delay(TimeSpan.FromSeconds(m_animationDuration));
             m_canvasGroup.blocksRaycasts = true;
         }
@@ -31,7 +32,8 @@ namespace JGM.Game
         {
             m_canvasGroup.blocksRaycasts = false;
             var rectTransform = (RectTransform)gameObject.transform;
-            rectTransform.DOAnchorPos(new Vector2(m_hidePosition, 0), m_animationDuration);
+            rectTransform.DOAnchorPos(new Vector2(m_hidePositionInX, 0), m_animationDuration);
+
             await Task.Delay(TimeSpan.FromSeconds(m_animationDuration));
             gameObject.SetActive(false);
         }

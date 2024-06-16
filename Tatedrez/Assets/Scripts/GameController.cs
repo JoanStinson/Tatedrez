@@ -26,7 +26,7 @@ namespace JGM.Game
 
         public void ChangeLanguageToRandom()
         {
-            Language currentLanguage = m_localizationService.currentLanguage;
+            Language currentLanguage = m_localizationService.CurrentLanguage;
             Language randomLanguage;
 
             do

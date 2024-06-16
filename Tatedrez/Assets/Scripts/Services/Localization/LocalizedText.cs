@@ -19,8 +19,8 @@ namespace JGM.Game
         private void Awake()
         {
             m_text = GetComponent<TextMeshProUGUI>();
-            m_localizationService.onLanguageChanged.AddListener(OnLanguageChanged);
-            string fontName = m_localizationService.GetFontNameForLanguage(m_localizationService.currentLanguage);
+            m_localizationService.OnLanguageChanged.AddListener(OnLanguageChanged);
+            string fontName = m_localizationService.GetFontNameForLanguage(m_localizationService.CurrentLanguage);
             m_text.font = m_fontLibrary.GetFontAsset(fontName);
             RefreshText();
         }
@@ -40,11 +40,6 @@ namespace JGM.Game
         public void RefreshText()
         {
             m_text.text = m_localizationService.Localize(m_localizedKey);
-        }
-
-        public void LocaliseText(string localizedKey, string extraText = "")
-        {
-            m_text.text = $"{m_localizationService.Localize(localizedKey)}{extraText}";
         }
 
         public void SetIntegerValue(int value)

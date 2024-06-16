@@ -4,8 +4,8 @@ namespace JGM.Game
 {
     public interface ILocalizationService
     {
-        public Language currentLanguage { get; }
-        public LanguageChangedEvent onLanguageChanged { get; set; }
+        public Language CurrentLanguage { get; }
+        public LanguageChangedEvent OnLanguageChanged { get; set; }
 
         void SetLanguage(Language language);
         string Localize(string textId);

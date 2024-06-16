@@ -6,6 +6,6 @@
         public const string ButtonClickSfx = "Button Click";
         public const string MessageAppearSfx = "Message Appear";
         public const string PlacePieceSfx = "Place Piece";
-        public const string WinCreditsSfx = "Win Credtis";
+        public const string WinCreditsSfx = "Win Credits";
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Zenject;
 
 namespace JGM.Game
 {
@@ -10,8 +11,8 @@ namespace JGM.Game
         public Action OnPiecePlaced { get; set; }
         public int PiecesOnBoard => m_boardModel.PiecesOnBoard;
 
-        [SerializeField]
-        private CellView[] m_cells;
+        [SerializeField] private CellView[] m_cells;
+        [Inject] private IAudioService m_audioService;
 
         private BoardModel m_boardModel;
         private BoardController m_boardController;
@@ -83,6 +84,7 @@ namespace JGM.Game
             if (placedPiece)
             {
                 OnPiecePlaced?.Invoke();
+                m_audioService.Play(AudioFileNames.PlacePieceSfx);
             }
 
             return placedPiece;

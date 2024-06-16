@@ -2,6 +2,7 @@
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
+using Zenject;
 
 namespace JGM.Game
 {
@@ -10,6 +11,7 @@ namespace JGM.Game
         [SerializeField] private LocalizedText m_messageText;
         [SerializeField] private int m_animationPositionInY = 2000;
         [SerializeField] private float m_animationDuration = 1f;
+        [Inject] private IAudioService m_audioService;
 
         public async void ShowMessage(int playerId)
         {
@@ -18,7 +20,8 @@ namespace JGM.Game
             var rectTransform = (RectTransform)gameObject.transform;
             rectTransform.DOAnchorPos(new Vector2(0, m_animationPositionInY), 0);
             rectTransform.DOAnchorPos(Vector2.zero, m_animationDuration);
-            await Task.Delay(TimeSpan.FromSeconds(m_animationDuration));
+            await Task.Delay(TimeSpan.FromSeconds(m_animationDuration / 2));
+            m_audioService.Play(AudioFileNames.MessageAppearSfx);
         }
 
         public async void HideMessage(bool animate)

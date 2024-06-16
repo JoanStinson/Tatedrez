@@ -24,6 +24,7 @@ namespace JGM.Game
         {
             m_gameController = new GameController(m_audioService, m_localizationService);
             m_gameModel = m_gameController.BuildGameModel(m_gameSettings);
+            m_gameController.PlayBackgroundMusic();
 
             m_mainMenuView.Initialize(this);
             m_playView.Initialize(this);

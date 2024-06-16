@@ -3943,6 +3943,7 @@ MonoBehaviour:
   m_playAgainButton: {fileID: 540734912}
   m_mainMenuButton: {fileID: 291945671}
   m_quitButton: {fileID: 1962614657}
+  m_winSfxSecondsDelay: 0.7
 --- !u!1 &510700393747894838
 GameObject:
   m_ObjectHideFlags: 0

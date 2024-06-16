@@ -19,6 +19,11 @@ namespace JGM.Game
             return new GameModel(gameSettings);
         }
 
+        public void PlayBackgroundMusic()
+        {
+            m_audioService.Play(AudioFileNames.BackgroundMusic, true);
+        }
+
         public void PlayButtonClickSfx()
         {
             m_audioService.Play(AudioFileNames.ButtonClickSfx);

@@ -7,11 +7,9 @@ namespace JGM.Game
 {
     public sealed class AudioService : MonoBehaviour, IAudioService
     {
-        [SerializeField, Range(1, 20)]
-        private int m_maxSimultaneousAudioSources = 10;
-
-        [SerializeField]
-        private Transform m_poolParent;
+        [SerializeField] private Transform m_poolParent;
+        [SerializeField, Range(1, 20)] private int m_maxSimultaneousAudioSources = 10;
+        [SerializeField, Range(0, 1)] private float m_musicVolume = 1f;
 
         [Inject] private AudioLibrary m_audioAssets;
         [Inject] private ICoroutineService m_coroutineService;
@@ -63,6 +61,7 @@ namespace JGM.Game
                 else
                 {
                     m_musicAudioSource = audioSource;
+                    m_musicAudioSource.volume = m_musicVolume;
                 }
             }
             else

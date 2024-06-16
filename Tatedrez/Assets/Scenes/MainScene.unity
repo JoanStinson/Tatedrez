@@ -1806,8 +1806,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb031d611d989c4ca0d2b479540e091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxSimultaneousAudioSources: 10
   m_poolParent: {fileID: 1717675900}
+  m_maxSimultaneousAudioSources: 10
+  m_musicVolume: 0.5
 --- !u!224 &1080216507 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2559477712556098665, guid: 9bdb03050c3310f4287dff04b87e1006, type: 3}

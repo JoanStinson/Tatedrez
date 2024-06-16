@@ -13,6 +13,7 @@ namespace JGM.Game
             Container.Bind<IAudioService>().FromInstance(m_audioServiceInstance);
             Container.Bind<ICoroutineService>().FromInstance(m_coroutineServiceInstance);
             Container.Bind<ILocalizationService>().To<LocalizationService>().AsSingle();
+            Container.Bind<IHapticFeedbackService>().To<BasicHapticFeedbackService>().AsSingle();
         }
     }
 }

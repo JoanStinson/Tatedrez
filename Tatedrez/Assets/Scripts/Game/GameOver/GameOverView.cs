@@ -14,6 +14,7 @@ namespace JGM.Game
         [SerializeField] private Button m_quitButton;
         [SerializeField] private float m_winSfxSecondsDelay = 0.7f;
         [Inject] private IAudioService m_audioService;
+        [Inject] private IHapticFeedbackService m_hapticFeedbackService;
 
         private GameView m_gameView;
 
@@ -46,6 +47,7 @@ namespace JGM.Game
             m_playerWinsText.SetIntegerValue(m_gameView.Model.LastPlayerWinId + 1);
             await Task.Delay(TimeSpan.FromSeconds(m_winSfxSecondsDelay));
             m_audioService.Play(AudioFileNames.WinCreditsSfx);
+            m_hapticFeedbackService.TriggerVibration();
         }
     }
 }

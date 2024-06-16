@@ -53,7 +53,7 @@ namespace JGM.Game
             m_gameController.PlayButtonClickSfx();
         }
 
-        public void OnPlayerWin(int playerWinId)
+        public void OnTicTacToeFound(int playerWinId)
         {
             m_gameModel.LastPlayerWinId = playerWinId;
             m_playView.Hide();

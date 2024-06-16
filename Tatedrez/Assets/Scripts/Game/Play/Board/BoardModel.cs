@@ -44,7 +44,7 @@ namespace JGM.Game
             return null;
         }
 
-        public int CalculatePiecesAmount()
+        public int CalculatePiecesOnBoard()
         {
             PiecesOnBoard = 0;
 

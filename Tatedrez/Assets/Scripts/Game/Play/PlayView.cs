@@ -16,28 +16,25 @@ namespace JGM.Game
         [SerializeField] private float m_showWinnerSeconds = 1f;
         [Inject] private ICoroutineService m_coroutineService;
 
-        private const int m_minBoardPiecesForTicTacToe = 5;
-
         private GameView m_gameView;
-        private PlayController m_playController;
         private RectTransform m_canvasTransform;
-        private BoardModel m_boardModel;
+        private PlayController m_playController;
 
         public override void Initialize(GameView gameView)
         {
             m_gameView = gameView;
-            m_playController = new PlayController();
             m_canvasTransform = (RectTransform)gameView.Canvas.transform;
+            m_playController = new PlayController(m_boardView);
 
-            m_boardModel = new BoardModel(gameView.Model.BoardRows, gameView.Model.BoardColumns);
-            m_boardView.Initialize(m_gameView.Model, m_boardModel);
+            var boardModel = m_playController.BuildBoardModel(gameView.Model);
+            m_boardView.Initialize(m_gameView.Model, boardModel);
             m_boardView.OnPiecePlaced += OnPiecePlaced;
             InitializePieces();
         }
 
         private async void OnPiecePlaced()
         {
-            if (TicTacToeFound())
+            if (m_playController.TicTacToeFound())
             {
                 await OnTicTacToeFound();
                 return;
@@ -45,18 +42,6 @@ namespace JGM.Game
 
             ChangePlayerTurn();
             await CheckIfPlayerCanMove();
-        }
-
-        private bool TicTacToeFound()
-        {
-            bool piecesAmountRequired = (m_boardView.CalculatePiecesAmount() >= m_minBoardPiecesForTicTacToe);
-            if (!piecesAmountRequired)
-            {
-                return false;
-            }
-
-            bool ticTacToe = m_boardView.CheckTicTacToe();
-            return ticTacToe;
         }
 
         private async Task OnTicTacToeFound()
@@ -68,8 +53,9 @@ namespace JGM.Game
                 piecesSpawnView.EnableAllPiecesInteraction();
             }
             m_canvasGroup.blocksRaycasts = false;
+
             await Task.Delay(TimeSpan.FromSeconds(m_showWinnerSeconds));
-            m_gameView.OnPlayerWin(playerWinId);
+            m_gameView.OnTicTacToeFound(playerWinId);
         }
 
         private void ChangePlayerTurn()
@@ -83,7 +69,7 @@ namespace JGM.Game
             int playerTurn = m_playController.GetPlayerTurn();
             int nonPlayerTurn = m_playController.GetNonPlayerTurn();
 
-            if (m_boardView.PiecesOnBoard > m_minBoardPiecesForTicTacToe)
+            if (m_boardView.PiecesOnBoard > m_playController.GetMinBoardPiecesForTicTacToe())
             {
                 m_piecesSpawnViews[playerTurn].EnableAllPiecesInteraction();
             }
@@ -98,15 +84,10 @@ namespace JGM.Game
 
         private async Task CheckIfPlayerCanMove()
         {
-            bool allPiecesArePlacedOnBoard = (m_boardView.PiecesOnBoard == m_boardModel.Rows + m_boardModel.Columns);
-            if (!allPiecesArePlacedOnBoard)
-            {
-                return;
-            }
-
             int playerTurn = m_playController.GetPlayerTurn();
-            bool playerCannotMove = !m_boardView.AnyPieceFromPlayerCanMove(m_piecesSpawnViews[playerTurn].GetPieces(), m_boardModel);
-            if (playerCannotMove)
+            var playerPieces = m_piecesSpawnViews[playerTurn].GetPieces();
+
+            if (!m_playController.CanPlayerMove(playerPieces))
             {
                 await DisplayCannotMoveMessage();
                 ChangePlayerTurn();

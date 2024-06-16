@@ -19,7 +19,7 @@ namespace JGM.Game
 
         public bool CellIsValidForPiece(CellModel cell, PieceView piece, BoardModel boardModel)
         {
-            bool allPiecesAreNotPlaced = boardModel.CalculatePiecesAmount() < boardModel.Rows + boardModel.Columns;
+            bool allPiecesAreNotPlaced = boardModel.CalculatePiecesOnBoard() < boardModel.Rows + boardModel.Columns;
             if (allPiecesAreNotPlaced)
             {
                 return cell.IsEmpty;

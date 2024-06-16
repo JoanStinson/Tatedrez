@@ -116,7 +116,7 @@ namespace JGM.Game
 
         public int CalculatePiecesAmount()
         {
-            return m_boardModel.CalculatePiecesAmount();
+            return m_boardModel.CalculatePiecesOnBoard();
         }
 
         public bool AnyPieceFromPlayerCanMove(IReadOnlyList<PieceView> pieces, BoardModel boardModel)

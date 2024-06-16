@@ -30,9 +30,9 @@ namespace JGM.Game
             PieceDisabledColorAlpha = gameSettings.PieceDisabledColorAlpha;
         }
 
-        public PieceConfig[] GetPieceConfigs(int index)
+        public PieceConfig[] GetPieceConfigs(int playerIndex)
         {
-            if (index == 0)
+            if (playerIndex == 0)
             {
                 return m_player1PieceConfigs;
             }

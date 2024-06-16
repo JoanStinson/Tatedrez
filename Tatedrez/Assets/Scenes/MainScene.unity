@@ -2214,7 +2214,7 @@ MonoBehaviour:
   animationType: 7
   targetType: 3
   forcedTargetType: 0
-  autoPlay: 0
+  autoPlay: 1
   useTargetAsV3: 0
   endValueFloat: 0
   endValueV3: {x: 0, y: 0, z: 0}
@@ -2247,8 +2247,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preset: 0
-  onEnableBehaviour: 2
-  onDisableBehaviour: 1
+  onEnableBehaviour: 1
+  onDisableBehaviour: 2
 --- !u!114 &1212600789
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1037
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Test Runner
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 116
+  controlID: 92
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: TestRunnerWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -122,13 +122,13 @@ MonoBehaviour:
     height: 403
   m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 17}
+  m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 13}
   - {fileID: 17}
   - {fileID: 12}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 2
+  m_LastSelected: 1
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 19
+  controlID: 80
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 64
+  controlID: 81
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: SceneView
+  m_Name: GameView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -271,12 +271,12 @@ MonoBehaviour:
     height: 584
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 16}
+  m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 16}
   - {fileID: 18}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -307,7 +307,7 @@ MonoBehaviour:
     m_SaveData: []
     m_OverlaysVisible: 1
   m_Spl:
-    ID: 9259
+    ID: 3425
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes:
@@ -396,7 +396,7 @@ MonoBehaviour:
       name: Tatedrez
       fullName: Tatedrez
       resultStatus: 1
-      duration: 0.3019826
+      duration: 0.1085601
       messages: 
       output: 
       stacktrace: 
@@ -412,7 +412,7 @@ MonoBehaviour:
       name: JGM.GameTests.dll
       fullName: C:/Users/Freee/Documents/GitHub/Tatedrez/Tatedrez/Library/ScriptAssemblies/JGM.GameTests.dll
       resultStatus: 1
-      duration: 0.2643862
+      duration: 0.0663894
       messages: 
       output: 
       stacktrace: 
@@ -428,7 +428,7 @@ MonoBehaviour:
       name: JGM
       fullName: JGM
       resultStatus: 1
-      duration: 0.262612
+      duration: 0.065377
       messages: 
       output: 
       stacktrace: 
@@ -444,7 +444,7 @@ MonoBehaviour:
       name: GameTests
       fullName: JGM.GameTests
       resultStatus: 1
-      duration: 0.2605913
+      duration: 0.0647255
       messages: 
       output: 
       stacktrace: 
@@ -460,7 +460,7 @@ MonoBehaviour:
       name: AudioServiceTest
       fullName: JGM.GameTests.AudioServiceTest
       resultStatus: 1
-      duration: 0.2306209
+      duration: 0.2638004
       messages: 
       output: 
       stacktrace: 
@@ -476,7 +476,7 @@ MonoBehaviour:
       name: When_PlayWithNonExistingAudio_Expect_WarningLogged
       fullName: JGM.GameTests.AudioServiceTest.When_PlayWithNonExistingAudio_Expect_WarningLogged
       resultStatus: 1
-      duration: 0.2145134
+      duration: 0.2465798
       messages: 
       output: 'Trying to play a clip that doesn''t exist!
 
@@ -490,12 +490,235 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1318
       parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.AudioServiceTest][suite]
+    - id: 1001
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.BoardModelTest][suite]
+      name: BoardModelTest
+      fullName: JGM.GameTests.BoardModelTest
+      resultStatus: 1
+      duration: 0.0592314
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1032
+      parentUniqueId: JGM.GameTests.dll/JGM/[JGM.GameTests][JGM.GameTests][suite]
+    - id: 1005
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid][suite]
+      name: BoardModel_Constructor_ShouldInitializeGrid
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid
+      resultStatus: 1
+      duration: 0.0311678
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1001
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.BoardModelTest][suite]
+    - id: 1002
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/BoardModel_Constructor_ShouldInitializeGrid/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid(3,3)]
+      name: BoardModel_Constructor_ShouldInitializeGrid(3,3)
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid(3,3)
+      resultStatus: 1
+      duration: 0.0157921
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1005
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid][suite]
+    - id: 1003
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/BoardModel_Constructor_ShouldInitializeGrid/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid(5,5)]
+      name: BoardModel_Constructor_ShouldInitializeGrid(5,5)
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid(5,5)
+      resultStatus: 1
+      duration: 0.0001656
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1005
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid][suite]
+    - id: 1004
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/BoardModel_Constructor_ShouldInitializeGrid/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid(1,1)]
+      name: BoardModel_Constructor_ShouldInitializeGrid(1,1)
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid(1,1)
+      resultStatus: 1
+      duration: 0.0000887
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1005
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid][suite]
+    - id: 1013
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell][suite]
+      name: BoardModel_GetCell_ShouldReturnCorrectCell
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell
+      resultStatus: 1
+      duration: 0.0116036
+      messages: 
+      output: 'NullReferenceException: Object reference not set to an instance of
+        an object
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1001
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.BoardModelTest][suite]
+    - id: 1010
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/BoardModel_GetCell_ShouldReturnCorrectCell/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell(3,3,1,1)]
+      name: BoardModel_GetCell_ShouldReturnCorrectCell(3,3,1,1)
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell(3,3,1,1)
+      resultStatus: 1
+      duration: 0.0011891
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1013
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell][suite]
+    - id: 1011
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/BoardModel_GetCell_ShouldReturnCorrectCell/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell(5,5,2,3)]
+      name: BoardModel_GetCell_ShouldReturnCorrectCell(5,5,2,3)
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell(5,5,2,3)
+      resultStatus: 1
+      duration: 0.0001351
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1013
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell][suite]
+    - id: 1012
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/BoardModel_GetCell_ShouldReturnCorrectCell/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell(1,1,0,0)]
+      name: BoardModel_GetCell_ShouldReturnCorrectCell(1,1,0,0)
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell(1,1,0,0)
+      resultStatus: 1
+      duration: 0.0000857
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1013
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell][suite]
+    - id: 1009
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly][suite]
+      name: BoardModel_SetCell_ShouldSetCellCorrectly
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly
+      resultStatus: 1
+      duration: 0.0106539
+      messages: 
+      output: 'NullReferenceException: Object reference not set to an instance of
+        an object
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1001
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.BoardModelTest][suite]
+    - id: 1006
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/BoardModel_SetCell_ShouldSetCellCorrectly/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly(3,3,1,1)]
+      name: BoardModel_SetCell_ShouldSetCellCorrectly(3,3,1,1)
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly(3,3,1,1)
+      resultStatus: 1
+      duration: 0.0003844
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1009
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly][suite]
+    - id: 1007
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/BoardModel_SetCell_ShouldSetCellCorrectly/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly(5,5,2,3)]
+      name: BoardModel_SetCell_ShouldSetCellCorrectly(5,5,2,3)
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly(5,5,2,3)
+      resultStatus: 1
+      duration: 0.0001685
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1009
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly][suite]
+    - id: 1008
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/BoardModel_SetCell_ShouldSetCellCorrectly/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly(1,1,0,0)]
+      name: BoardModel_SetCell_ShouldSetCellCorrectly(1,1,0,0)
+      fullName: JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly(1,1,0,0)
+      resultStatus: 1
+      duration: 0.000085
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1009
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly][suite]
     - id: 1314
       uniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.ComponentPoolTest][suite]
       name: ComponentPoolTest
       fullName: JGM.GameTests.ComponentPoolTest
       resultStatus: 1
-      duration: 0.0253464
+      duration: 0.0411814
       messages: 
       output: 
       stacktrace: 
@@ -511,7 +734,7 @@ MonoBehaviour:
       name: When_Get_Expect_ReturnPooledComponent
       fullName: JGM.GameTests.ComponentPoolTest.When_Get_Expect_ReturnPooledComponent
       resultStatus: 1
-      duration: 0.0107611
+      duration: 0.0126182
       messages: 
       output: 
       stacktrace: 
@@ -528,7 +751,7 @@ MonoBehaviour:
       name: When_GetFromEmptyPool_Expect_NullComponent
       fullName: JGM.GameTests.ComponentPoolTest.When_GetFromEmptyPool_Expect_NullComponent
       resultStatus: 1
-      duration: 0.000784
+      duration: 0.0008273
       messages: 
       output: 
       stacktrace: 
@@ -545,7 +768,7 @@ MonoBehaviour:
       name: When_Return_Expect_ComponentReturnedToPool
       fullName: JGM.GameTests.ComponentPoolTest.When_Return_Expect_ComponentReturnedToPool
       resultStatus: 1
-      duration: 0.000909
+      duration: 0.0006997
       messages: 
       output: 
       stacktrace: 
@@ -557,13 +780,13 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1314
       parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.ComponentPoolTest][suite]
-    m_ResultText: JGM.GameTests.dll (0.264s)
+    m_ResultText: BoardModelTest (0.059s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 81b64d08
-      m_LastClickedID: 139310721
-      m_ExpandedIDs: ba8a27802076b780a9cd0a838c3b7d859daf2e88f1fe3b892a6fd689d69f388ccfebdc8f30e5d1901cc3719205cb62951744ab9541b6fd9726d2ca997a9792a0c5dc25a1b40f83a68ac4e9a62cecfda865d8b8a9d3e1a6ab2b3ed9ab23b810ac8b1b2eadac1b46b00158ebb09d1511b1a47a31be57fd25c55d514cc681f0d7c6e881e0c7eaedb4c92ed928ca954229cac1c4ffcb7a4f13cc09fa37d4b342aad8113b2dd91e3b3cd9ddad9bd9db76b8d94ab304da7d0786ddfc37dddd20fa82de599eacdf643d13e55fb13feb9ba435ec50e340ed149096ed6ce072ee37ccc9f071f0baf5377d7dfd287c46fe581af0ffc9c8b60000025d02629470046e2cf30781b64d0897db500aa9b1200bca982f0c4f00300c4e9b0d0f7eed1c1098ab6311fb761614905f0e18a37852188eff8719d406c61b41cf001c0031b01c8adeda20a1c1ba237cf7e7231c5e6226870a6128be0da0295dedc92adc1d212bb804472c65bf832d6d272d3043b45a302e094933892b8534a65aa437ce55e9374c12d9399cccd23b8abb453df0ea4e3d9b09ca3e6745c23f5390d14097bca5410289c141818fec413526ff4b1af2164cfc2c484d5efce74ff9bc6151aa565c52d5130153b534de534b1ac05459e2e255b60302587d187c599695665cbc033a5d9b35a86078988866a286af66e586f075bcad74762be2c07806f1057a6a8bb47c93d9ee7eb501497fffffff7f
+      m_SelectedIDs: 1e55db1d
+      m_LastClickedID: 500913438
+      m_ExpandedIDs: ba8a27802076b780a9cd0a838c3b7d859daf2e88f1fe3b892a6fd689d69f388ccfebdc8f30e5d1901cc3719205cb62951744ab9541b6fd9726d2ca997a9792a0c5dc25a1b40f83a68ac4e9a62cecfda865d8b8a9d3e1a6ab2b3ed9ab23b810ac8b1b2eadac1b46b00158ebb09d1511b1a47a31be57fd25c55d514cc681f0d7c6e881e0c7eaedb4c92ed928ca954229cac1c4ffcb7a4f13ccfbf181cc09fa37d4b342aad8113b2dd91e3b3cd9ddad9bd9db76b8d97d0786ddfc37dddd20fa82de599eacdf643d13e55fb13feb9ba435ec50e340ed149096ed6ce072ee37ccc9f071f0baf55f562efc377d7dfd287c46fe581af0ffc9c8b60000025d02629470046e2cf30781b64d0897db500aa9b1200bca982f0c4f00300c4e9b0d0f7eed1c1098ab6311fb761614905f0e18a37852188eff8719d406c61b41cf001c0031b01c1e55db1d8adeda204f00a921a1c1ba237cf7e7231c5e6226870a6128be0da0295dedc92adc1d212bb804472c65bf832d6d272d3043b45a302e094933892b8534a65aa437ce55e9374c12d9399cccd23b8abb453df0ea4e3d9b09ca3e6745c23f5390d14097bca5410289c141818fec413526ff4b1af2164cfc2c484d5efce74ff9bc6151aa565c52d5130153b534de534b1ac05459e2e255b60302587d187c599695665cbc033a5d9b35a86078988866a286af66e586f075bcad74762be2c0786a8bb47c93d9ee7eb501497fffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -631,22 +854,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Audio/Sfx
+    - Assets/Tests
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Audio/Sfx
+  - Assets/Tests
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Freee\Documents\GitHub\Tatedrez\Tatedrez
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: f07a0000
-    m_LastClickedID: 31472
-    m_ExpandedIDs: 00000000686500009a6d00009c6d00009e6d0000a06d0000a26d0000a46d0000a66d0000a86d0000aa6d0000ac6d0000ae6d0000b06d0000b26d0000b46d0000b66d0000b86d0000ba6d0000bc6d0000be6d0000c86d0000f26e00009277000048780000568900005889000000ca9a3b
+    m_SelectedIDs: fa680000
+    m_LastClickedID: 26874
+    m_ExpandedIDs: 000000008c6200008e62000090620000926200009462000096620000986200009a6200009c6200009e620000a0620000a2620000a4620000a6620000a8620000aa620000ac620000ae620000b0620000b2620000b4620000b6620000b8620000ba620000bc62000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -674,7 +897,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000686500009a6d00009c6d00009e6d0000a06d0000a26d0000a46d0000a66d0000a86d0000aa6d0000ac6d0000ae6d0000b06d0000b26d0000b46d0000b66d0000b86d0000ba6d0000bc6d0000be6d0000
+    m_ExpandedIDs: 000000008c6200008e62000090620000926200009462000096620000986200009a6200009c6200009e620000a0620000a2620000a4620000a6620000a8620000aa620000ac620000ae620000b0620000b2620000b4620000b6620000b8620000ba620000bc620000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -699,24 +922,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 1a6a0000
+    m_LastClickedInstanceID: 27162
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Editor
+      m_OriginalName: Editor
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 28298
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 5}
     m_CreateAssetUtility:
@@ -806,7 +1029,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 2cc6ffffd2c7ffffaecdffff4ad1ffffb2d2ffff26d5ffff2cd6ffff20d8ffff0ed9fffff8d9ffff00dbffff26fbfffff4ffffffb864000068a80000aaa80000baa80000
+      m_ExpandedIDs: 48cbffff34cdffff20cfffff94d1ffff68d2ffff26fbffff0e6100001a610000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1111,9 +1334,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0, y: 0, z: 90}
+    m_Target: {x: -0.6495534, y: -0.6143629, z: 60.602077}
     speed: 2
-    m_Value: {x: -0.0000007178541, y: -0.00000037867989, z: 89.99999}
+    m_Value: {x: -0.6495534, y: -0.6143629, z: 60.602077}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1164,9 +1387,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 10.198645
+    m_Target: 6.1458163
     speed: 2
-    m_Value: 10.198644
+    m_Value: 6.1458163
   m_Ortho:
     m_Target: 1
     speed: 2

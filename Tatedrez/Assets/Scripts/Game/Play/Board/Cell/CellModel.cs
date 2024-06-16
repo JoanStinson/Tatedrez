@@ -10,6 +10,14 @@ namespace JGM.Game
         public Vector2Int Coordinates { get; private set; }
         public bool IsEmpty => (PieceModel == null);
 
+        public CellModel()
+        {
+            PieceModel = null;
+            DefaultColor = Color.white;
+            HighlightedColor = Color.red;
+            Coordinates = Vector2Int.zero;
+        }
+
         public CellModel(PieceModel pieceModel, Color defaultColor, Color highlightedColor, Vector2Int coordinates)
         {
             PieceModel = pieceModel;

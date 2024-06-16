@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace JGM.Game
@@ -14,6 +15,7 @@ namespace JGM.Game
         [SerializeField] private MessageView m_messageView;
         [SerializeField] private float m_showMessageSeconds = 3f;
         [SerializeField] private float m_showWinnerSeconds = 1f;
+        [SerializeField] private Button m_backButton;
         [Inject] private ICoroutineService m_coroutineService;
 
         private GameView m_gameView;
@@ -30,6 +32,8 @@ namespace JGM.Game
             m_boardView.Initialize(m_gameView.Model, boardModel);
             m_boardView.OnPiecePlaced += OnPiecePlaced;
             InitializePieces();
+
+            m_backButton.onClick.AddListener(OnClickBackButton);
         }
 
         private async void OnPiecePlaced()
@@ -110,6 +114,11 @@ namespace JGM.Game
             {
                 m_piecesSpawnViews[i].Initialize(m_gameView.Model, i, m_boardView, m_canvasTransform);
             }
+        }
+
+        private void OnClickBackButton()
+        {
+            m_gameView.OnClickPlayBackButton();
         }
 
         public override void Show()

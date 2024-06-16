@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Zenject;
 
 namespace JGM.Game
@@ -71,6 +72,13 @@ namespace JGM.Game
         public void OnClickMainMenuButton()
         {
             m_gameOverView.Hide();
+            m_mainMenuView.Show();
+            m_gameController.PlayPressButtonSfx();
+        }
+
+        public void OnClickPlayBackButton()
+        {
+            m_playView.Hide();
             m_mainMenuView.Show();
             m_gameController.PlayPressButtonSfx();
         }

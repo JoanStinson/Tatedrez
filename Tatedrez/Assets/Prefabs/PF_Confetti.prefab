@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4971566234865721822}
   - component: {fileID: 4957761271189437835}
   m_Layer: 5
-  m_Name: PF_VFX_Confetti
+  m_Name: PF_Confetti
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

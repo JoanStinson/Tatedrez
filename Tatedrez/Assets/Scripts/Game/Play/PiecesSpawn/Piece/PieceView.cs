@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Zenject;
 
 namespace JGM.Game
 {
     public class PieceView : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
+        public class Factory : PlaceholderFactory<PieceView> { }
+
         public PieceModel Model { get; private set; }
         public CellView CellView { get; set; }
 

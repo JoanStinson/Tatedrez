@@ -5,7 +5,6 @@ namespace JGM.Game
 {
     public class MainSceneMonoInstaller : MonoInstaller
     {
-        [Header("Services")]
         [SerializeField] private AudioService m_audioServiceInstance;
         [SerializeField] private CoroutineService m_coroutineServiceInstance;
 

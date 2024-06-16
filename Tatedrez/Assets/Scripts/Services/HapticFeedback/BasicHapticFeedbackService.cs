@@ -6,7 +6,9 @@ namespace JGM.Game
     {
         public void TriggerVibration()
         {
+#if !UNITY_EDITOR
             Handheld.Vibrate();
+#endif
         }
     }
 }

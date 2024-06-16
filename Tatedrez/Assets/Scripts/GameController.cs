@@ -25,9 +25,9 @@ namespace JGM.Game
             m_audioService.Play(AudioFileNames.BackgroundMusic, true);
         }
 
-        public void PlayButtonClickSfx()
+        public void PlayPressButtonSfx()
         {
-            m_audioService.Play(AudioFileNames.ButtonClickSfx);
+            m_audioService.Play(AudioFileNames.PressButtonSfx);
         }
 
         public void ChangeLanguageToRandom()

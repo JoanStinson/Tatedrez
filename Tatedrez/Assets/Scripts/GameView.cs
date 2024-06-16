@@ -39,19 +39,19 @@ namespace JGM.Game
         {
             m_mainMenuView.Hide();
             m_playView.Show();
-            m_gameController.PlayButtonClickSfx();
+            m_gameController.PlayPressButtonSfx();
         }
 
         public void OnClickQuitButton()
         {
             m_gameController.Quit();
-            m_gameController.PlayButtonClickSfx();
+            m_gameController.PlayPressButtonSfx();
         }
 
         public void OnClickChangeLanguageButton()
         {
             m_gameController.ChangeLanguageToRandom();
-            m_gameController.PlayButtonClickSfx();
+            m_gameController.PlayPressButtonSfx();
         }
 
         public void OnTicTacToeFound(int playerWinId)
@@ -65,14 +65,14 @@ namespace JGM.Game
         {
             m_gameOverView.Hide();
             m_playView.Show();
-            m_gameController.PlayButtonClickSfx();
+            m_gameController.PlayPressButtonSfx();
         }
 
         public void OnClickMainMenuButton()
         {
             m_gameOverView.Hide();
             m_mainMenuView.Show();
-            m_gameController.PlayButtonClickSfx();
+            m_gameController.PlayPressButtonSfx();
         }
     }
 }

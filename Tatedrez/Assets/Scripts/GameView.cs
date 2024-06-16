@@ -44,7 +44,7 @@ namespace JGM.Game
 
         public void OnClickQuitButton()
         {
-            m_gameController.ExitGame();
+            m_gameController.Quit();
             m_gameController.PlayButtonClickSfx();
         }
 

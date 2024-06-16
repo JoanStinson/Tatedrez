@@ -1,4 +1,5 @@
-﻿using static JGM.Game.LocalizationService;
+﻿using UnityEngine;
+using static JGM.Game.LocalizationService;
 using Random = UnityEngine.Random;
 
 namespace JGM.Game
@@ -43,7 +44,7 @@ namespace JGM.Game
             m_localizationService.SetLanguage(randomLanguage);
         }
 
-        public void ExitGame()
+        public void Quit()
         {
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;

@@ -114,18 +114,22 @@ namespace JGM.Game
 
         public override void Show()
         {
+            gameObject.SetActive(true);
+            SetupNewGame();
+            m_coroutineService.StartExternalCoroutine(DisableLayoutGroups());
             base.Show();
+        }
+
+        private void SetupNewGame()
+        {
             m_boardView.ClearBoard();
             InitializePieces();
             m_playController.GenerateFirstTurnRandomly();
             SetPlayerTurn();
-
-            m_canvasGroup.blocksRaycasts = true;
-            var coroutine = DisablePiecesSpawnLayoutGroups();
-            m_coroutineService.StartExternalCoroutine(coroutine);
+            m_messageView.HideMessage(false);
         }
 
-        private IEnumerator DisablePiecesSpawnLayoutGroups()
+        private IEnumerator DisableLayoutGroups()
         {
             yield return new WaitForEndOfFrame();
 
@@ -133,8 +137,6 @@ namespace JGM.Game
             {
                 spawnView.DisableLayoutGroup();
             }
-
-            m_messageView.HideMessage(false);
         }
     }
 }

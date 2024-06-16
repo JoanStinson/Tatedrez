@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: -1920
+    x: 0
     y: 43
     width: 1920
     height: 1037
   m_ShowMode: 4
-  m_Title: Test Runner
+  m_Title: Hierarchy
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 92
+  controlID: 48
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -64,12 +64,12 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1508
+    x: 1437
     y: 0
-    width: 412
+    width: 483
     height: 987
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -92,10 +92,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 366
+    width: 343
     height: 584
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -111,24 +111,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: TestRunnerWindow
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 584
-    width: 1508
+    width: 1437
     height: 403
   m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 12}
+  m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 13}
   - {fileID: 17}
   - {fileID: 12}
-  m_Selected: 2
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -219,12 +219,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1508
+    width: 1437
     height: 987
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 80
+  controlID: 49
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -244,12 +244,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1508
+    width: 1437
     height: 584
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 81
+  controlID: 50
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -260,14 +260,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: GameView
+  m_Name: SimulatorWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 366
+    x: 343
     y: 0
-    width: 1142
+    width: 1094
     height: 584
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
@@ -307,7 +307,7 @@ MonoBehaviour:
     m_SaveData: []
     m_OverlaysVisible: 1
   m_Spl:
-    ID: 3425
+    ID: 103
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes:
@@ -396,7 +396,7 @@ MonoBehaviour:
       name: Tatedrez
       fullName: Tatedrez
       resultStatus: 1
-      duration: 0.1085601
+      duration: 0.5661445
       messages: 
       output: 
       stacktrace: 
@@ -412,7 +412,7 @@ MonoBehaviour:
       name: JGM.GameTests.dll
       fullName: C:/Users/Freee/Documents/GitHub/Tatedrez/Tatedrez/Library/ScriptAssemblies/JGM.GameTests.dll
       resultStatus: 1
-      duration: 0.0663894
+      duration: 0.5347692
       messages: 
       output: 
       stacktrace: 
@@ -428,7 +428,7 @@ MonoBehaviour:
       name: JGM
       fullName: JGM
       resultStatus: 1
-      duration: 0.065377
+      duration: 0.5335795
       messages: 
       output: 
       stacktrace: 
@@ -444,7 +444,7 @@ MonoBehaviour:
       name: GameTests
       fullName: JGM.GameTests
       resultStatus: 1
-      duration: 0.0647255
+      duration: 0.532778
       messages: 
       output: 
       stacktrace: 
@@ -460,7 +460,7 @@ MonoBehaviour:
       name: AudioServiceTest
       fullName: JGM.GameTests.AudioServiceTest
       resultStatus: 1
-      duration: 0.2638004
+      duration: 0.4189481
       messages: 
       output: 
       stacktrace: 
@@ -476,7 +476,7 @@ MonoBehaviour:
       name: When_PlayWithNonExistingAudio_Expect_WarningLogged
       fullName: JGM.GameTests.AudioServiceTest.When_PlayWithNonExistingAudio_Expect_WarningLogged
       resultStatus: 1
-      duration: 0.2465798
+      duration: 0.4027429
       messages: 
       output: 'Trying to play a clip that doesn''t exist!
 
@@ -495,7 +495,7 @@ MonoBehaviour:
       name: BoardModelTest
       fullName: JGM.GameTests.BoardModelTest
       resultStatus: 1
-      duration: 0.0592314
+      duration: 0.0575501
       messages: 
       output: 
       stacktrace: 
@@ -511,7 +511,7 @@ MonoBehaviour:
       name: BoardModel_Constructor_ShouldInitializeGrid
       fullName: JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid
       resultStatus: 1
-      duration: 0.0311678
+      duration: 0.016919
       messages: 
       output: 
       stacktrace: 
@@ -527,7 +527,7 @@ MonoBehaviour:
       name: BoardModel_Constructor_ShouldInitializeGrid(3,3)
       fullName: JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid(3,3)
       resultStatus: 1
-      duration: 0.0157921
+      duration: 0.0099789
       messages: 
       output: 
       stacktrace: 
@@ -544,7 +544,7 @@ MonoBehaviour:
       name: BoardModel_Constructor_ShouldInitializeGrid(5,5)
       fullName: JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid(5,5)
       resultStatus: 1
-      duration: 0.0001656
+      duration: 0.0002296
       messages: 
       output: 
       stacktrace: 
@@ -561,7 +561,7 @@ MonoBehaviour:
       name: BoardModel_Constructor_ShouldInitializeGrid(1,1)
       fullName: JGM.GameTests.BoardModelTest.BoardModel_Constructor_ShouldInitializeGrid(1,1)
       resultStatus: 1
-      duration: 0.0000887
+      duration: 0.0001114
       messages: 
       output: 
       stacktrace: 
@@ -578,12 +578,9 @@ MonoBehaviour:
       name: BoardModel_GetCell_ShouldReturnCorrectCell
       fullName: JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell
       resultStatus: 1
-      duration: 0.0116036
+      duration: 0.0096189
       messages: 
-      output: 'NullReferenceException: Object reference not set to an instance of
-        an object
-
-'
+      output: 
       stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
@@ -597,7 +594,7 @@ MonoBehaviour:
       name: BoardModel_GetCell_ShouldReturnCorrectCell(3,3,1,1)
       fullName: JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell(3,3,1,1)
       resultStatus: 1
-      duration: 0.0011891
+      duration: 0.0013318
       messages: 
       output: 
       stacktrace: 
@@ -614,7 +611,7 @@ MonoBehaviour:
       name: BoardModel_GetCell_ShouldReturnCorrectCell(5,5,2,3)
       fullName: JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell(5,5,2,3)
       resultStatus: 1
-      duration: 0.0001351
+      duration: 0.0001409
       messages: 
       output: 
       stacktrace: 
@@ -631,7 +628,7 @@ MonoBehaviour:
       name: BoardModel_GetCell_ShouldReturnCorrectCell(1,1,0,0)
       fullName: JGM.GameTests.BoardModelTest.BoardModel_GetCell_ShouldReturnCorrectCell(1,1,0,0)
       resultStatus: 1
-      duration: 0.0000857
+      duration: 0.0001073
       messages: 
       output: 
       stacktrace: 
@@ -648,12 +645,9 @@ MonoBehaviour:
       name: BoardModel_SetCell_ShouldSetCellCorrectly
       fullName: JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly
       resultStatus: 1
-      duration: 0.0106539
+      duration: 0.007918
       messages: 
-      output: 'NullReferenceException: Object reference not set to an instance of
-        an object
-
-'
+      output: 
       stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
@@ -667,7 +661,7 @@ MonoBehaviour:
       name: BoardModel_SetCell_ShouldSetCellCorrectly(3,3,1,1)
       fullName: JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly(3,3,1,1)
       resultStatus: 1
-      duration: 0.0003844
+      duration: 0.0004804
       messages: 
       output: 
       stacktrace: 
@@ -684,7 +678,7 @@ MonoBehaviour:
       name: BoardModel_SetCell_ShouldSetCellCorrectly(5,5,2,3)
       fullName: JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly(5,5,2,3)
       resultStatus: 1
-      duration: 0.0001685
+      duration: 0.0001166
       messages: 
       output: 
       stacktrace: 
@@ -701,7 +695,7 @@ MonoBehaviour:
       name: BoardModel_SetCell_ShouldSetCellCorrectly(1,1,0,0)
       fullName: JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly(1,1,0,0)
       resultStatus: 1
-      duration: 0.000085
+      duration: 0.000101
       messages: 
       output: 
       stacktrace: 
@@ -713,12 +707,130 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1009
       parentUniqueId: JGM.GameTests.dll/JGM/GameTests/BoardModelTest/[JGM.GameTests][JGM.GameTests.BoardModelTest.BoardModel_SetCell_ShouldSetCellCorrectly][suite]
+    - id: 1014
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.ColumnsResultTest][suite]
+      name: ColumnsResultTest
+      fullName: JGM.GameTests.ColumnsResultTest
+      resultStatus: 1
+      duration: 0.0134512
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1036
+      parentUniqueId: JGM.GameTests.dll/JGM/[JGM.GameTests][JGM.GameTests][suite]
+    - id: 1020
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/ColumnsResultTest/[JGM.GameTests][JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenColumnIsEmpty]
+      name: CheckTicTacToe_ShouldReturnFalse_WhenColumnIsEmpty
+      fullName: JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenColumnIsEmpty
+      resultStatus: 1
+      duration: 0.0014541
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.ColumnsResultTest][suite]
+    - id: 1019
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/ColumnsResultTest/[JGM.GameTests][JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenColumnsHaveMixedPlayerPieces]
+      name: CheckTicTacToe_ShouldReturnFalse_WhenColumnsHaveMixedPlayerPieces
+      fullName: JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenColumnsHaveMixedPlayerPieces
+      resultStatus: 1
+      duration: 0.0007474
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.ColumnsResultTest][suite]
+    - id: 1016
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/ColumnsResultTest/[JGM.GameTests][JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenNoColumnsHaveSamePlayerPieces]
+      name: CheckTicTacToe_ShouldReturnFalse_WhenNoColumnsHaveSamePlayerPieces
+      fullName: JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenNoColumnsHaveSamePlayerPieces
+      resultStatus: 1
+      duration: 0.0002843
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.ColumnsResultTest][suite]
+    - id: 1015
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/ColumnsResultTest/[JGM.GameTests][JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenColumnHasSamePlayerPieces]
+      name: CheckTicTacToe_ShouldReturnTrue_WhenColumnHasSamePlayerPieces
+      fullName: JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenColumnHasSamePlayerPieces
+      resultStatus: 1
+      duration: 0.0005987
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.ColumnsResultTest][suite]
+    - id: 1018
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/ColumnsResultTest/[JGM.GameTests][JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenLastColumnHasSamePlayerPieces]
+      name: CheckTicTacToe_ShouldReturnTrue_WhenLastColumnHasSamePlayerPieces
+      fullName: JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenLastColumnHasSamePlayerPieces
+      resultStatus: 1
+      duration: 0.0002917
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.ColumnsResultTest][suite]
+    - id: 1017
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/ColumnsResultTest/[JGM.GameTests][JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenMiddleColumnHasSamePlayerPieces]
+      name: CheckTicTacToe_ShouldReturnTrue_WhenMiddleColumnHasSamePlayerPieces
+      fullName: JGM.GameTests.ColumnsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenMiddleColumnHasSamePlayerPieces
+      resultStatus: 1
+      duration: 0.0002956
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.ColumnsResultTest][suite]
     - id: 1314
       uniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.ComponentPoolTest][suite]
       name: ComponentPoolTest
       fullName: JGM.GameTests.ComponentPoolTest
       resultStatus: 1
-      duration: 0.0411814
+      duration: 0.0156067
       messages: 
       output: 
       stacktrace: 
@@ -734,7 +846,7 @@ MonoBehaviour:
       name: When_Get_Expect_ReturnPooledComponent
       fullName: JGM.GameTests.ComponentPoolTest.When_Get_Expect_ReturnPooledComponent
       resultStatus: 1
-      duration: 0.0126182
+      duration: 0.0048298
       messages: 
       output: 
       stacktrace: 
@@ -751,7 +863,7 @@ MonoBehaviour:
       name: When_GetFromEmptyPool_Expect_NullComponent
       fullName: JGM.GameTests.ComponentPoolTest.When_GetFromEmptyPool_Expect_NullComponent
       resultStatus: 1
-      duration: 0.0008273
+      duration: 0.0007256
       messages: 
       output: 
       stacktrace: 
@@ -768,7 +880,7 @@ MonoBehaviour:
       name: When_Return_Expect_ComponentReturnedToPool
       fullName: JGM.GameTests.ComponentPoolTest.When_Return_Expect_ComponentReturnedToPool
       resultStatus: 1
-      duration: 0.0006997
+      duration: 0.0005909
       messages: 
       output: 
       stacktrace: 
@@ -780,13 +892,233 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1314
       parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.ComponentPoolTest][suite]
-    m_ResultText: BoardModelTest (0.059s)
+    - id: 1021
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.DiagonalsResultTest][suite]
+      name: DiagonalsResultTest
+      fullName: JGM.GameTests.DiagonalsResultTest
+      resultStatus: 1
+      duration: 0.0105799
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1042
+      parentUniqueId: JGM.GameTests.dll/JGM/[JGM.GameTests][JGM.GameTests][suite]
+    - id: 1025
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/DiagonalsResultTest/[JGM.GameTests][JGM.GameTests.DiagonalsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenDiagonalsAreEmpty]
+      name: CheckTicTacToe_ShouldReturnFalse_WhenDiagonalsAreEmpty
+      fullName: JGM.GameTests.DiagonalsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenDiagonalsAreEmpty
+      resultStatus: 1
+      duration: 0.0009285
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1021
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.DiagonalsResultTest][suite]
+    - id: 1026
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/DiagonalsResultTest/[JGM.GameTests][JGM.GameTests.DiagonalsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenDiagonalsHaveMixedPlayerPieces]
+      name: CheckTicTacToe_ShouldReturnFalse_WhenDiagonalsHaveMixedPlayerPieces
+      fullName: JGM.GameTests.DiagonalsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenDiagonalsHaveMixedPlayerPieces
+      resultStatus: 1
+      duration: 0.0002505
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1021
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.DiagonalsResultTest][suite]
+    - id: 1024
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/DiagonalsResultTest/[JGM.GameTests][JGM.GameTests.DiagonalsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenNoDiagonalsHaveSamePlayerPieces]
+      name: CheckTicTacToe_ShouldReturnFalse_WhenNoDiagonalsHaveSamePlayerPieces
+      fullName: JGM.GameTests.DiagonalsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenNoDiagonalsHaveSamePlayerPieces
+      resultStatus: 1
+      duration: 0.0002235
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1021
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.DiagonalsResultTest][suite]
+    - id: 1023
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/DiagonalsResultTest/[JGM.GameTests][JGM.GameTests.DiagonalsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenAntiDiagonalHasSamePlayerPieces]
+      name: CheckTicTacToe_ShouldReturnTrue_WhenAntiDiagonalHasSamePlayerPieces
+      fullName: JGM.GameTests.DiagonalsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenAntiDiagonalHasSamePlayerPieces
+      resultStatus: 1
+      duration: 0.0002166
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1021
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.DiagonalsResultTest][suite]
+    - id: 1022
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/DiagonalsResultTest/[JGM.GameTests][JGM.GameTests.DiagonalsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenMainDiagonalHasSamePlayerPieces]
+      name: CheckTicTacToe_ShouldReturnTrue_WhenMainDiagonalHasSamePlayerPieces
+      fullName: JGM.GameTests.DiagonalsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenMainDiagonalHasSamePlayerPieces
+      resultStatus: 1
+      duration: 0.0002602
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1021
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.DiagonalsResultTest][suite]
+    - id: 1014
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.RowsResultTest][suite]
+      name: RowsResultTest
+      fullName: JGM.GameTests.RowsResultTest
+      resultStatus: 1
+      duration: 0.0105791
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1029
+      parentUniqueId: JGM.GameTests.dll/JGM/[JGM.GameTests][JGM.GameTests][suite]
+    - id: 1016
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/RowsResultTest/[JGM.GameTests][JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenNoRowsHaveSamePlayerPieces]
+      name: CheckTicTacToe_ShouldReturnFalse_WhenNoRowsHaveSamePlayerPieces
+      fullName: JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenNoRowsHaveSamePlayerPieces
+      resultStatus: 1
+      duration: 0.0007614
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.RowsResultTest][suite]
+    - id: 1020
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/RowsResultTest/[JGM.GameTests][JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenRowIsEmpty]
+      name: CheckTicTacToe_ShouldReturnFalse_WhenRowIsEmpty
+      fullName: JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenRowIsEmpty
+      resultStatus: 1
+      duration: 0.0001963
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.RowsResultTest][suite]
+    - id: 1019
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/RowsResultTest/[JGM.GameTests][JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenRowsHaveMixedPlayerPieces]
+      name: CheckTicTacToe_ShouldReturnFalse_WhenRowsHaveMixedPlayerPieces
+      fullName: JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnFalse_WhenRowsHaveMixedPlayerPieces
+      resultStatus: 1
+      duration: 0.0002057
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.RowsResultTest][suite]
+    - id: 1018
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/RowsResultTest/[JGM.GameTests][JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenLastRowHasSamePlayerPieces]
+      name: CheckTicTacToe_ShouldReturnTrue_WhenLastRowHasSamePlayerPieces
+      fullName: JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenLastRowHasSamePlayerPieces
+      resultStatus: 1
+      duration: 0.0002356
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.RowsResultTest][suite]
+    - id: 1017
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/RowsResultTest/[JGM.GameTests][JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenMiddleRowHasSamePlayerPieces]
+      name: CheckTicTacToe_ShouldReturnTrue_WhenMiddleRowHasSamePlayerPieces
+      fullName: JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenMiddleRowHasSamePlayerPieces
+      resultStatus: 1
+      duration: 0.0001937
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.RowsResultTest][suite]
+    - id: 1015
+      uniqueId: JGM.GameTests.dll/JGM/GameTests/RowsResultTest/[JGM.GameTests][JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenRowHasSamePlayerPieces]
+      name: CheckTicTacToe_ShouldReturnTrue_WhenRowHasSamePlayerPieces
+      fullName: JGM.GameTests.RowsResultTest.CheckTicTacToe_ShouldReturnTrue_WhenRowHasSamePlayerPieces
+      resultStatus: 1
+      duration: 0.0001966
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: JGM.GameTests.dll/JGM/GameTests/[JGM.GameTests][JGM.GameTests.RowsResultTest][suite]
+    m_ResultText: CheckTicTacToe_ShouldReturnFalse_WhenNoDiagonalsHaveSamePlayerPieces
+      (0.000s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 1e55db1d
-      m_LastClickedID: 500913438
-      m_ExpandedIDs: ba8a27802076b780a9cd0a838c3b7d859daf2e88f1fe3b892a6fd689d69f388ccfebdc8f30e5d1901cc3719205cb62951744ab9541b6fd9726d2ca997a9792a0c5dc25a1b40f83a68ac4e9a62cecfda865d8b8a9d3e1a6ab2b3ed9ab23b810ac8b1b2eadac1b46b00158ebb09d1511b1a47a31be57fd25c55d514cc681f0d7c6e881e0c7eaedb4c92ed928ca954229cac1c4ffcb7a4f13ccfbf181cc09fa37d4b342aad8113b2dd91e3b3cd9ddad9bd9db76b8d97d0786ddfc37dddd20fa82de599eacdf643d13e55fb13feb9ba435ec50e340ed149096ed6ce072ee37ccc9f071f0baf55f562efc377d7dfd287c46fe581af0ffc9c8b60000025d02629470046e2cf30781b64d0897db500aa9b1200bca982f0c4f00300c4e9b0d0f7eed1c1098ab6311fb761614905f0e18a37852188eff8719d406c61b41cf001c0031b01c1e55db1d8adeda204f00a921a1c1ba237cf7e7231c5e6226870a6128be0da0295dedc92adc1d212bb804472c65bf832d6d272d3043b45a302e094933892b8534a65aa437ce55e9374c12d9399cccd23b8abb453df0ea4e3d9b09ca3e6745c23f5390d14097bca5410289c141818fec413526ff4b1af2164cfc2c484d5efce74ff9bc6151aa565c52d5130153b534de534b1ac05459e2e255b60302587d187c599695665cbc033a5d9b35a86078988866a286af66e586f075bcad74762be2c0786a8bb47c93d9ee7eb501497fffffff7f
+      m_SelectedIDs: 8d1e3752
+      m_LastClickedID: 1379344013
+      m_ExpandedIDs: ba8a27802076b780a9cd0a838c3b7d859daf2e88f1fe3b892a6fd689d69f388ccfebdc8f30e5d1901cc3719205cb62951744ab9541b6fd9726d2ca997a9792a0c5dc25a1b40f83a68ac4e9a62cecfda865d8b8a9d3e1a6ab2b3ed9ab23b810ac8b1b2eadac1b46b00158ebb09d1511b1a47a31be57fd25c55d514cc681f0d7c6e881e0c7eaedb4c92ed928ca954229cac1c4ffcb7a4f13ccfbf181cc09fa37d4b342aad8113b2dd91e3b3cd9ddad9bd9db76b8d97d0786ddfc37dddd20fa82de599eacdf643d13e55fb13feb9ba435ec50e340ed149096ed6ce072ee37ccc9f071f0baf55f562efc377d7dfd287c46fe581af0ffc9c8b60000025d02629470046e2cf30781b64d0897db500aa9b1200bca982f0c4f00300c4e9b0d0f7eed1c1098ab6311fb761614905f0e18a37852188eff8719d406c61b41cf001c0031b01c8adeda204f00a921a1c1ba237cf7e7231c5e6226870a6128be0da0295dedc92adc1d212bb804472c65bf832d6d272d3043b45a302e094933892b8534a65aa437ce55e9374c12d9399cccd23b8abb453df0ea4e3d9b09ca3e6745c23f5390d14097bca5410289c141818fec413526ff4b1af2164cfc2c484d5efce74ff9bc6151aa565c52d5130153b534de534b1ac05459e2e255b60302587d187c599695665cbc033a5d9b35a86078988866a286af66e586f075bcad74762be2c0786a8bb47c93d9ee7eb501497fffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -832,9 +1164,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -1920
+    x: 0
     y: 657
-    width: 1507
+    width: 1436
     height: 382
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -854,22 +1186,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Tests
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Tests
+  - Assets
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Freee\Documents\GitHub\Tatedrez\Tatedrez
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: fa680000
-    m_LastClickedID: 26874
-    m_ExpandedIDs: 000000008c6200008e62000090620000926200009462000096620000986200009a6200009c6200009e620000a0620000a2620000a4620000a6620000a8620000aa620000ac620000ae620000b0620000b2620000b4620000b6620000b8620000ba620000bc62000000ca9a3b
+    m_SelectedIDs: 98620000
+    m_LastClickedID: 25240
+    m_ExpandedIDs: 0000000096620000986200009a6200009c6200009e620000a0620000a2620000a4620000a6620000a8620000aa620000ac620000ae620000b0620000b2620000b4620000b6620000b8620000ba620000bc620000be620000c0620000c2620000c4620000c662000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -897,7 +1229,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008c6200008e62000090620000926200009462000096620000986200009a6200009c6200009e620000a0620000a2620000a4620000a6620000a8620000aa620000ac620000ae620000b0620000b2620000b4620000b6620000b8620000ba620000bc620000
+    m_ExpandedIDs: 0000000096620000986200009a6200009c6200009e620000a0620000a2620000a4620000a6620000a8620000aa620000ac620000ae620000b0620000b2620000b4620000b6620000b8620000ba620000bc620000be620000c0620000c2620000c4620000c6620000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -922,24 +1254,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 1a6a0000
-    m_LastClickedInstanceID: 27162
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Editor
-      m_OriginalName: Editor
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 28298
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 5}
     m_CreateAssetUtility:
@@ -973,9 +1305,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -412
+    x: 1437
     y: 73
-    width: 411
+    width: 482
     height: 966
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -985,7 +1317,7 @@ MonoBehaviour:
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
   m_PreviewResizer:
-    m_CachedPref: -303
+    m_CachedPref: 303
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
@@ -1015,9 +1347,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -1920
+    x: 0
     y: 73
-    width: 365
+    width: 342
     height: 563
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -1029,7 +1361,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 48cbffff34cdffff20cfffff94d1ffff68d2ffff26fbffff0e6100001a610000
+      m_ExpandedIDs: 3c93ffff8a93ffff8c94ffff5c96ffffaa96ffff1a99ffff0cadffff44adffff46aeffffecb0ffff24b1ffff26b2ffffeed2ffff26d3ffff96d5ffffc4edfffffcf1ffff36f3fffff0f4ffffaaf6ffff66f8ffff14fbffff3e6700004a670000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1073,9 +1405,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -1554
+    x: 343
     y: 73
-    width: 1140
+    width: 1092
     height: 563
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -1334,9 +1666,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.6495534, y: -0.6143629, z: 60.602077}
+    m_Target: {x: 2.7375, y: -2.4335768, z: 18.81455}
     speed: 2
-    m_Value: {x: -0.6495534, y: -0.6143629, z: 60.602077}
+    m_Value: {x: 2.7375, y: -2.4335768, z: 18.81455}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1387,9 +1719,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 6.1458163
+    m_Target: 1.5782326
     speed: 2
-    m_Value: 6.1458163
+    m_Value: 1.5782326
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1434,9 +1766,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -1920
+    x: 0
     y: 657
-    width: 1507
+    width: 1436
     height: 382
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -1451,21 +1783,21 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12015, guid: 0000000000000000e000000000000000, type: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13974, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-    m_Text: Game
-    m_Image: {fileID: -6423792434712278376, guid: 0000000000000000d000000000000000, type: 0}
+    m_Text: Simulator
+    m_Image: {fileID: 8720083202187608617, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -1554
+    x: 343
     y: 73
-    width: 1140
+    width: 1092
     height: 563
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -1473,68 +1805,33 @@ MonoBehaviour:
     m_SaveData: []
     m_OverlaysVisible: 1
   m_SerializedViewNames:
-  - UnityEditor.DeviceSimulation.SimulatorWindow
+  - UnityEditor.GameView
   m_SerializedViewValues:
-  - C:\Users\Freee\Documents\GitHub\Tatedrez\Tatedrez\Library\PlayModeViewStates\1810e1c36b691f440966e99442b37a63
-  m_PlayModeViewName: GameView
+  - C:\Users\Freee\Documents\GitHub\Tatedrez\Tatedrez\Library\PlayModeViewStates\3192b788eafe3ea449d6bed10de1e6b8
+  m_PlayModeViewName: Device Simulator
   m_ShowGizmos: 0
   m_TargetDisplay: 0
-  m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1920, y: 1080}
+  m_ClearColor: {r: 0, g: 0, b: 0, a: 1}
+  m_TargetSize: {x: 2960, y: 1440}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
-  m_EnterPlayModeBehavior: 0
+  m_EnterPlayModeBehavior: 2
   m_UseMipMap: 0
-  m_VSyncEnabled: 0
-  m_Gizmos: 0
-  m_Stats: 0
-  m_SelectedSizes: 03000000000000000000000000000000000000000000000000000000000000000000000000000000
-  m_ZoomArea:
-    m_HRangeLocked: 0
-    m_VRangeLocked: 0
-    hZoomLockedByDefault: 0
-    vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -960
-    m_HBaseRangeMax: 960
-    m_VBaseRangeMin: -540
-    m_VBaseRangeMax: 540
-    m_HAllowExceedBaseRangeMin: 1
-    m_HAllowExceedBaseRangeMax: 1
-    m_VAllowExceedBaseRangeMin: 1
-    m_VAllowExceedBaseRangeMax: 1
-    m_ScaleWithWindow: 0
-    m_HSlider: 0
-    m_VSlider: 0
-    m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
-    m_EnableSliderZoomHorizontal: 0
-    m_EnableSliderZoomVertical: 0
-    m_UniformScale: 1
-    m_UpDirection: 1
-    m_DrawArea:
-      serializedVersion: 2
-      x: 0
-      y: 21
-      width: 1140
-      height: 542
-    m_Scale: {x: 0.50185186, y: 0.50185186}
-    m_Translation: {x: 570, y: 271}
-    m_MarginLeft: 0
-    m_MarginRight: 0
-    m_MarginTop: 0
-    m_MarginBottom: 0
-    m_LastShownAreaInsideMargins:
-      serializedVersion: 2
-      x: -1135.7933
-      y: -540
-      width: 2271.5867
-      height: 1080
-    m_MinimalGUI: 1
-  m_defaultScale: 0.50185186
-  m_LastWindowPixelSize: {x: 1140, y: 563}
-  m_ClearInEditMode: 1
-  m_NoCameraWarning: 1
-  m_LowResolutionForAspectRatios: 01000000000000000000
-  m_XRRenderMode: 0
-  m_RenderTexture: {fileID: 0}
+  m_SimulatorState:
+    controlPanelVisible: 0
+    controlPanelWidth: 0
+    controlPanelFoldoutKeys:
+    - UnityEditor.DeviceSimulation.ApplicationSettingsPlugin
+    controlPanelFoldoutValues: 00
+    pluginNames:
+    - UnityEditor.DeviceSimulation.ApplicationSettingsPlugin
+    pluginStates:
+    - '{}'
+    scale: 33
+    fitToScreenEnabled: 1
+    rotationDegree: 270
+    highlightSafeAreaEnabled: 1
+    friendlyName: Samsung Galaxy S9
+    networkReachability: 1
+    systemLanguage: 10

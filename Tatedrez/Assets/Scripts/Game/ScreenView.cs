@@ -19,10 +19,10 @@ namespace JGM.Game
         public virtual async void Show()
         {
             m_canvasGroup.blocksRaycasts = false;
-            gameObject.SetActive(true);
             var rectTransform = (RectTransform)gameObject.transform;
             rectTransform.DOAnchorPos(new Vector2(m_showPositionInX, 0), 0);
             rectTransform.DOAnchorPos(Vector2.zero, m_animationDuration);
+            gameObject.SetActive(true);
 
             await Task.Delay(TimeSpan.FromSeconds(m_animationDuration));
             m_canvasGroup.blocksRaycasts = true;

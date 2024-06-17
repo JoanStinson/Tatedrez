@@ -36,6 +36,7 @@ A document explaining a bit the implementation process and project features can 
 </p>
 
 ## ⚙️ Installation
+The Android build can be found in the [Releases](https://github.com/JoanStinson/Tatedrez/releases) section of this repository.
 
 ## 📜 Kata Rules
 * **Pieces:**

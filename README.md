@@ -23,7 +23,7 @@ A basic tatedrez mobile game implementation done in a few days.
 </p>
 
 <p align="center">
-  <img height="400" src="https://github.com/JoanStinson/Tatedrez/blob/main/UserImages/Preview.PNG">
+  <img height="350" src="https://github.com/JoanStinson/Tatedrez/blob/main/UserImages/Preview.PNG">
 </p>
 
 ## 💡 Implementation

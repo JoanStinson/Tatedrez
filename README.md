@@ -28,14 +28,9 @@ A basic tatedrez mobile game implementation done in a few days.
 
 ## 💡 Implementation
 A document explaining a bit the implementation process and project features can be found in the [Readme.pdf](https://github.com/JoanStinson/Tatedrez/blob/main/Readme.pdf) file.
-<p align="center">
-  <img src="https://github.com/JoanStinson/Tatedrez/blob/main/UserImages/Implementation01.PNG">
-</p>
-<p align="center">
-  <img src="https://github.com/JoanStinson/Tatedrez/blob/main/UserImages/Implementation02.PNG">
-</p>
 
 ## ⚙️ Installation
+The Android build can be found in the [Releases](https://github.com/JoanStinson/Tatedrez/releases) section of this repository.
 
 ## 📜 Kata Rules
 * **Pieces:**

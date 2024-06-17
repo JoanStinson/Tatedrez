@@ -15,7 +15,7 @@ namespace JGM.Game
         [SerializeField] private float m_animationDuration = 1f;
         [Inject] private IAudioService m_audioService;
 
-        public async void ShowMessage(int playerId)
+        public async void ShowMessage(int playerId, Action onMessageHide)
         {
             m_messageText.SetIntegerValue(playerId);
             m_messagePanel.DOAnchorPos(new Vector2(0, m_animationPositionInY), 0);
@@ -27,6 +27,7 @@ namespace JGM.Game
 
             await Task.Delay(TimeSpan.FromSeconds(m_durationSeconds - (m_animationDuration / 2)));
             Hide();
+            onMessageHide?.Invoke();
         }
 
         private async void Hide()

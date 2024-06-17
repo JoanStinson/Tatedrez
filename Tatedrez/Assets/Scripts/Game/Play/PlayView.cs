@@ -99,8 +99,7 @@ namespace JGM.Game
 
             if (!m_playController.CanPlayerMove(playerPieces))
             {
-                m_messageView.ShowMessage(playerTurn + 1);
-                ChangePlayerTurn();
+                m_messageView.ShowMessage(playerTurn + 1, ChangePlayerTurn);
             }
         }
 

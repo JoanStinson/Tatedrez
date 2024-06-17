@@ -31,3 +31,4 @@ MonoBehaviour:
     Sprite: {fileID: -644309489, guid: 576ee8cbdf3556c4e853a086497de857, type: 3}
   m_pieceEnabledColorAlpha: 1
   m_pieceDisabledColorAlpha: 0.5
+  m_showTutorialAlways: 1

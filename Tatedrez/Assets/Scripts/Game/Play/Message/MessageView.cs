@@ -8,7 +8,9 @@ namespace JGM.Game
 {
     public class MessageView : MonoBehaviour
     {
+        [SerializeField] private RectTransform m_messagePanel;
         [SerializeField] private LocalizedText m_messageText;
+        [SerializeField] private float m_durationSeconds = 3f;
         [SerializeField] private int m_animationPositionInY = 2000;
         [SerializeField] private float m_animationDuration = 1f;
         [Inject] private IAudioService m_audioService;
@@ -16,25 +18,26 @@ namespace JGM.Game
         public async void ShowMessage(int playerId)
         {
             m_messageText.SetIntegerValue(playerId);
+            m_messagePanel.DOAnchorPos(new Vector2(0, m_animationPositionInY), 0);
+            m_messagePanel.DOAnchorPos(Vector2.zero, m_animationDuration);
             gameObject.SetActive(true);
-            var rectTransform = (RectTransform)gameObject.transform;
-            rectTransform.DOAnchorPos(new Vector2(0, m_animationPositionInY), 0);
-            rectTransform.DOAnchorPos(Vector2.zero, m_animationDuration);
+
             await Task.Delay(TimeSpan.FromSeconds(m_animationDuration / 2));
             m_audioService.Play(AudioFileNames.MessageAppearSfx);
+
+            await Task.Delay(TimeSpan.FromSeconds(m_durationSeconds - (m_animationDuration / 2)));
+            Hide();
         }
 
-        public async void HideMessage(bool animate)
+        private async void Hide()
         {
-            if (!animate)
-            {
-                gameObject.SetActive(false);
-                return;
-            }
-
-            var rectTransform = (RectTransform)gameObject.transform;
-            rectTransform.DOAnchorPos(new Vector2(0, m_animationPositionInY), m_animationDuration);
+            m_messagePanel.DOAnchorPos(new Vector2(0, m_animationPositionInY), m_animationDuration);
             await Task.Delay(TimeSpan.FromSeconds(m_animationDuration));
+            gameObject.SetActive(false);
+        }
+
+        public void HideMessage()
+        {
             gameObject.SetActive(false);
         }
     }

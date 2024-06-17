@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Threading.Tasks;
+using UnityEngine;
 
 namespace JGM.Game
 {
@@ -8,6 +10,7 @@ namespace JGM.Game
         [SerializeField] private Transform m_background;
         [SerializeField] private Transform m_leftHand;
         [SerializeField] private Transform m_rightHand;
+        [SerializeField] private float m_tutorialDelay = 1;
 
         [Header("Hierarchy Dependencies")]
         [SerializeField] private Transform m_play;
@@ -17,8 +20,9 @@ namespace JGM.Game
         [SerializeField] private Transform m_rightPieces;
         [SerializeField] private Transform m_message;
 
-        public void ShowTutorial(int playerTurnId)
+        public async void ShowTutorial(int playerTurnId)
         {
+            await Task.Delay(TimeSpan.FromSeconds(m_tutorialDelay));
             gameObject.SetActive(true);
             m_background.SetParent(m_play);
 

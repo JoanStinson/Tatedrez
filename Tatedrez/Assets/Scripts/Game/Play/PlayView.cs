@@ -13,7 +13,6 @@ namespace JGM.Game
         [SerializeField] private BoardView m_boardView;
         [SerializeField] private PiecesSpawnView[] m_piecesSpawnViews;
         [SerializeField] private MessageView m_messageView;
-        [SerializeField] private float m_showMessageSeconds = 3f;
         [SerializeField] private TutorialView m_tutorialView;
         [SerializeField] private Button m_backButton;
         [SerializeField] private float m_showWinnerSeconds = 1f;
@@ -42,7 +41,7 @@ namespace JGM.Game
             if (!m_gameView.Model.CompletedTutorial)
             {
                 m_tutorialView.HideTutorial();
-                //m_gameView.Model.CompletedTutorial = true;
+                m_gameView.Model.CompletedTutorial = !m_gameView.Model.ShowTutorialAlways;
             }
 
             if (m_playController.TicTacToeFound())
@@ -52,7 +51,7 @@ namespace JGM.Game
             }
 
             ChangePlayerTurn();
-            await CheckIfPlayerCanMove();
+            CheckIfPlayerCanMove();
         }
 
         private async Task OnTicTacToeFound()
@@ -93,26 +92,16 @@ namespace JGM.Game
             m_piecesSpawnViews[nonPlayerTurn].DisableAllPiecesInteraction();
         }
 
-        private async Task CheckIfPlayerCanMove()
+        private void CheckIfPlayerCanMove()
         {
             int playerTurn = m_playController.GetPlayerTurn();
             var playerPieces = m_piecesSpawnViews[playerTurn].GetPieces();
 
             if (!m_playController.CanPlayerMove(playerPieces))
             {
-                await DisplayCannotMoveMessage();
+                m_messageView.ShowMessage(playerTurn + 1);
                 ChangePlayerTurn();
             }
-        }
-
-        private async Task DisplayCannotMoveMessage()
-        {
-            m_canvasGroup.blocksRaycasts = false;
-            int playerTurn = m_playController.GetPlayerTurn();
-            m_messageView.ShowMessage(playerTurn + 1);
-            await Task.Delay(TimeSpan.FromSeconds(m_showMessageSeconds));
-            m_messageView.HideMessage(true);
-            m_canvasGroup.blocksRaycasts = true;
         }
 
         private void InitializePieces()
@@ -142,7 +131,7 @@ namespace JGM.Game
             InitializePieces();
             m_playController.GenerateFirstTurnRandomly();
             SetPlayerTurn();
-            m_messageView.HideMessage(false);
+            m_messageView.HideMessage();
             m_tutorialView.HideTutorial();
 
             if (!m_gameView.Model.CompletedTutorial)

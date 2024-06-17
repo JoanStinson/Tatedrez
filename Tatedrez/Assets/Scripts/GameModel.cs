@@ -12,8 +12,9 @@ namespace JGM.Game
         public Color BoardCellHighlightedColor { get; private set; }
         public float PieceEnabledColorAlpha { get; private set; }
         public float PieceDisabledColorAlpha { get; private set; }
-        public int LastPlayerWinId { get; set; }
+        public bool ShowTutorialAlways { get; private set; }
         public bool CompletedTutorial { get; set; }
+        public int LastPlayerWinId { get; set; }
 
         private readonly PieceConfig[] m_player1PieceConfigs;
         private readonly PieceConfig[] m_player2PieceConfigs;
@@ -29,6 +30,7 @@ namespace JGM.Game
             BoardCellHighlightedColor = gameSettings.BoardCellHighlightedColor;
             PieceEnabledColorAlpha = gameSettings.PieceEnabledColorAlpha;
             PieceDisabledColorAlpha = gameSettings.PieceDisabledColorAlpha;
+            ShowTutorialAlways = gameSettings.ShowTutorialAlways;
         }
 
         public PieceConfig[] GetPieceConfigs(int playerIndex)

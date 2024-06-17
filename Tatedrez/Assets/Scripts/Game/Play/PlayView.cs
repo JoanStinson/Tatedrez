@@ -14,8 +14,9 @@ namespace JGM.Game
         [SerializeField] private PiecesSpawnView[] m_piecesSpawnViews;
         [SerializeField] private MessageView m_messageView;
         [SerializeField] private float m_showMessageSeconds = 3f;
-        [SerializeField] private float m_showWinnerSeconds = 1f;
+        [SerializeField] private TutorialView m_tutorialView;
         [SerializeField] private Button m_backButton;
+        [SerializeField] private float m_showWinnerSeconds = 1f;
         [Inject] private ICoroutineService m_coroutineService;
 
         private GameView m_gameView;
@@ -38,6 +39,12 @@ namespace JGM.Game
 
         private async void OnPiecePlaced()
         {
+            if (!m_gameView.Model.CompletedTutorial)
+            {
+                m_tutorialView.HideTutorial();
+                //m_gameView.Model.CompletedTutorial = true;
+            }
+
             if (m_playController.TicTacToeFound())
             {
                 await OnTicTacToeFound();
@@ -136,6 +143,13 @@ namespace JGM.Game
             m_playController.GenerateFirstTurnRandomly();
             SetPlayerTurn();
             m_messageView.HideMessage(false);
+            m_tutorialView.HideTutorial();
+
+            if (!m_gameView.Model.CompletedTutorial)
+            {
+                int playerTurnId = m_playController.GetPlayerTurn();
+                m_tutorialView.ShowTutorial(playerTurnId);
+            }
         }
 
         private IEnumerator DisableLayoutGroups()

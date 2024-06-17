@@ -13,6 +13,7 @@ namespace JGM.Game
         public float PieceEnabledColorAlpha { get; private set; }
         public float PieceDisabledColorAlpha { get; private set; }
         public int LastPlayerWinId { get; set; }
+        public bool CompletedTutorial { get; set; }
 
         private readonly PieceConfig[] m_player1PieceConfigs;
         private readonly PieceConfig[] m_player2PieceConfigs;
